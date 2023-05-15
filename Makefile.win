@@ -1,11 +1,11 @@
 # Project: FlightManagement
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe -std=c++14
-CC       = gcc.exe -std=c++14
+CPP      = g++.exe
+CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o passenger.o flight.o
-LINKOBJ  = main.o passenger.o flight.o
+OBJ      = main.o Date.o Menu.o BusinessClass.o EconomyClass.o FirstClass.o Flight.o FlightList.o Passenger.o
+LINKOBJ  = main.o Date.o Menu.o BusinessClass.o EconomyClass.o FirstClass.o Flight.o FlightList.o Passenger.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -27,8 +27,26 @@ $(BIN): $(OBJ)
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
-passenger.o: passenger.cpp
-	$(CPP) -c passenger.cpp -o passenger.o $(CXXFLAGS)
+Date.o: Date.cpp
+	$(CPP) -c Date.cpp -o Date.o $(CXXFLAGS)
 
-flight.o: flight.cpp
-	$(CPP) -c flight.cpp -o flight.o $(CXXFLAGS)
+Menu.o: Menu.cpp
+	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)
+
+BusinessClass.o: BusinessClass.cpp
+	$(CPP) -c BusinessClass.cpp -o BusinessClass.o $(CXXFLAGS)
+
+EconomyClass.o: EconomyClass.cpp
+	$(CPP) -c EconomyClass.cpp -o EconomyClass.o $(CXXFLAGS)
+
+FirstClass.o: FirstClass.cpp
+	$(CPP) -c FirstClass.cpp -o FirstClass.o $(CXXFLAGS)
+
+Flight.o: Flight.cpp
+	$(CPP) -c Flight.cpp -o Flight.o $(CXXFLAGS)
+
+FlightList.o: FlightList.cpp
+	$(CPP) -c FlightList.cpp -o FlightList.o $(CXXFLAGS)
+
+Passenger.o: Passenger.cpp
+	$(CPP) -c Passenger.cpp -o Passenger.o $(CXXFLAGS)
