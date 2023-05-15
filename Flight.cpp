@@ -21,8 +21,9 @@ void Flight::input()
 		getline(cin, flightRoute);
 		cout<<"StartAirport: ";
 		getline(cin, startAirport);
-		cout<<"StartDate: ";
+		cout<<"StartDate: "<<endl;
 		cin>>startDate;
+		cin.ignore();
 		cout<<"destinationAirport: ";
 		getline(cin, destinationAirport);
 		cout<<"flightLength: ";
@@ -34,6 +35,7 @@ void Flight::input()
 		getline(cin, flightNature);
 		cout<<"Door: ";
 		cin>>door;
+		cin.ignore();
 		cout<<"Chair: ";
 		getline(cin, chair);
 		cout<<"Destination: ";
@@ -61,8 +63,10 @@ void Flight::input()
 		getline(cin, flightRoute);
 		cout<<"StartAirport: ";
 		getline(cin, startAirport);
-		cout<<"StartDate: ";
+//		cin.ignore();
+		cout<<"StartDate: "<<endl;
 		cin>>startDate;
+//		cin.ignore();
 		cout<<"destinationAirport: ";
 		getline(cin, destinationAirport);
 		cout<<"flightLength: ";

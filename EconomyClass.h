@@ -11,7 +11,7 @@ public:
 	float fastfoodPrice;
 	int vocher;
 	int ageECN;
-	float AggageWeightECN;
+	float aggageWeightECN;
 	
 void input();
 void output();

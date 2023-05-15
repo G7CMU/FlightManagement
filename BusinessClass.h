@@ -14,7 +14,7 @@ public:
 	CARD card;
 	string waitingFood, softDrinks, meal;
 	int ageBSN;
-	float softDrinksPrice, mealPrice, aggageWeightBSN, InitialPrice;
+	float softDrinksPrice, mealPrice, aggageWeightBSN;
 void input();
 void output();
 float tax();
