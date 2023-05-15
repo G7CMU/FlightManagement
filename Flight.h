@@ -13,7 +13,7 @@ public:
 	string airlinesLabel, flightRoute, startAirport, destinationAirport,
 	flightID, flightNature, chair, destination, from, to, passengerID, typeOfLuggage;  
 	int door;
-	float flightLength, timeDelay, initialPrice;
+	float flightLength, timeDelay, InitialPrice;
 	
 Flight();
 virtual void input();

@@ -2,14 +2,14 @@
 #define PASSENGER_H
 
 #include <iostream>
-#include "DateOfBirth.h"
+#include "Date.h"
 #include <string>
 using namespace std;
 class Passenger
 {
 public:
 	string id, name, phoneNumber, passengerID;
-	DateOfBirth dateOfBirth;
+	Date dateOfBirth;
 	void input();
 	void output();
 	int getday();

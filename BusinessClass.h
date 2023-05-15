@@ -10,15 +10,15 @@ using namespace std;
 class BusinessClass : public Flight
 {
 public:
-	WaitingRoom waitRoom;
-	Card card;
+	WAITING_ROOM waitRoom;
+	CARD card;
 	string waitingFood, softDrinks, meal;
 	int ageBSN;
-	float softDrinksPrice, mealPrice, aggageWeightBSN;
+	float softDrinksPrice, mealPrice, aggageWeightBSN, InitialPrice;
 void input();
 void output();
 float tax();
 FlightType classType();
-float Totalprice();
+float TotalPrice();
 };
 #endif

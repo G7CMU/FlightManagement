@@ -1,5 +1,8 @@
 #include "Flight.h"
-
+Flight::Flight()
+{
+	
+}
 void Flight::input()
 {
 	int choice;
@@ -21,7 +24,7 @@ void Flight::input()
 		cout<<"StartDate: ";
 		cin>>startDate;
 		cout<<"destinationAirport: ";
-		getline(cin, destinationAirport)
+		getline(cin, destinationAirport);
 		cout<<"flightLength: ";
 		cin>>flightLength;
 		cin.ignore();
@@ -44,7 +47,7 @@ void Flight::input()
 		cout<<"typeOfLuggage: ";
 		cin>>typeOfLuggage;
 		cout<<"initialPrice: ";
-		cin>>initialPrice;
+		cin>>InitialPrice;
 	//	cin>>a;
 		a.input();
 	}
@@ -61,7 +64,7 @@ void Flight::input()
 		cout<<"StartDate: ";
 		cin>>startDate;
 		cout<<"destinationAirport: ";
-		getline(cin, destinationAirport)
+		getline(cin, destinationAirport);
 		cout<<"flightLength: ";
 		cin>>flightLength;
 		cin.ignore();
@@ -84,7 +87,7 @@ void Flight::input()
 		cout<<"typeOfLuggage: ";
 		cin>>typeOfLuggage;
 		cout<<"initialPrice: ";
-		cin>>initialPrice;
+		cin>>InitialPrice;
 	}
 }
 void Flight::output()
@@ -105,11 +108,11 @@ void Flight::output()
 	cout<<"From: "<<from<<endl;
 	cout<<"To: "<<to<<endl;
 	cout<<"typeOfLuggage: "<<typeOfLuggage<<endl;
-	cout<<"initialPrice: "<<initialPrice<<endl;
+	cout<<"initialPrice: "<<InitialPrice<<endl;
 }
 FlightType Flight::classType()
 {
-	return 0;
+	return NONE;
 }
 float Flight::TotalPrice()
 {

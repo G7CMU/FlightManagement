@@ -40,7 +40,7 @@ void FirstClass::output()
 	cout<<"RoomEat: "<<roomEat<<endl;
 	cout<<"EatPrice: "<<eatPrice<<endl;
 	cout<<"Service: "<<service<<endl;
-	cout<<"ServicePrice: "servicePrice<<endl;
+	cout<<"ServicePrice: "<<servicePrice<<endl;
 	cout<<"Accumulation: "<<accumulation<<endl;
 	cout<<"Age F: "<<ageF<<endl;
 	cout<<"Aggage Weight F: "<<aggageWeightF<<endl;
@@ -48,8 +48,8 @@ void FirstClass::output()
 float FirstClass::tax()
 {
 	int sale;
-		if (accumulated > 30) sale = InitialPrice*0.3;
-		else if (accumulated > 15) sale = InitialPrice*0.15;
+		if (accumulation > 30) sale = InitialPrice*0.3;
+		else if (accumulation > 15) sale = InitialPrice*0.15;
 		else sale=0;
 	int pay;
 		if (ageF > 62 && ageF < 10) pay = InitialPrice*0.1;
@@ -61,7 +61,7 @@ float FirstClass::tax()
 }
 FlightType FirstClass::classType()
 {
-	return FIRSTCLASS;
+	return FIRST;
 }
 float FirstClass::Totalprice()
 {

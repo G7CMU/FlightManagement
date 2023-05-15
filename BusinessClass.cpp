@@ -20,7 +20,7 @@ void BusinessClass::input()
 	cout<<"Card: ";
 	card = NODE;
 	// them chuc nang
-	getline(cin, eat);
+//	getline(cin, eat);
 	cout << "Age BSN: ";
 	cin >> ageBSN;
 	cout << "Aggage Weight BSN: ";
@@ -63,7 +63,7 @@ FlightType BusinessClass::classType()
 {
 	return BUSINESS;
 }
-float BusinessClass::price()
+float BusinessClass::Totalprice()
 {
-	return BusinessClass::tax()+InitialPrice+eatPrice;
+	return BusinessClass::tax()+InitialPrice+mealPrice;
 }

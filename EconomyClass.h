@@ -7,8 +7,8 @@
 class EconomyClass : public Flight
 {
 public:
-	Fastfood fastFood;
-	float priceOfFastfood;
+	FASTFOOD fastFood;
+	float fastfoodPrice;
 	int vocher;
 	int ageECN;
 	float AggageWeightECN;
@@ -17,7 +17,7 @@ void input();
 void output();
 float tax();
 FlightType classType();
-float Totalprice();
+float TotalPrice();
 };
 
 #endif
