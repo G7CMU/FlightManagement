@@ -3,7 +3,7 @@
 void waitForInput()
 {
 	string dumpInput;
-	cout << "Nhan phim bat ki de quay lai!";
+	cout << "Nhan Enter de tiep tuc!";
 	cin.ignore();
 	getline(cin, dumpInput);
 }
