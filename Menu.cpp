@@ -26,7 +26,7 @@ void printLine()
 
 void printSpace(int length)
 {
-	cout << left << setw(length) << "";
+	cout << setw(length) << "";
 }
 
 void alignCenter(string text, int containerLength)
@@ -36,17 +36,15 @@ void alignCenter(string text, int containerLength)
 	printSpace(space);
 	cout << text;
 	printSpace(space + 1);
-	cout << "|" << endl;
+	cout <<(text.length() % 2 == 0 ? "|" : " |") << endl;
 }
 
 void printTableCol(string text, int containerLength)
 {
-	int sub = 1;
 	int space = (containerLength - text.length()) / 2;
-	if (text.length() % 2 == 1) sub = -1;
 	printSpace(space);
 	cout << text;
-	printSpace(space - sub);
+	printSpace(space + 3);
 	cout << "|";
 }
 
