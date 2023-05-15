@@ -41,9 +41,9 @@ void alignCenter(string text, int containerLength)
 
 void printTableCol(string text, int containerLength)
 {
-	int sub = 0;
+	int sub = 1;
 	int space = (containerLength - text.length()) / 2;
-	if (text.length() % 2 == 1) sub = 1;
+	if (text.length() % 2 == 1) sub = -1;
 	printSpace(space);
 	cout << text;
 	printSpace(space - sub);

@@ -63,7 +63,7 @@ FlightType BusinessClass::classType()
 {
 	return BUSINESS;
 }
-float BusinessClass::Totalprice()
+float BusinessClass::TotalPrice()
 {
 	return BusinessClass::tax()+InitialPrice+mealPrice;
 }

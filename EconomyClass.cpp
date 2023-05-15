@@ -44,7 +44,7 @@ FlightType EconomyClass::classType()
 {
 	return ECONOMY;
 } 
-float EconomyClass::Totalprice()
+float EconomyClass::TotalPrice()
 {
 	return EconomyClass::tax()+InitialPrice+fastfoodPrice;
 }

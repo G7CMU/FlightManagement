@@ -63,7 +63,7 @@ FlightType FirstClass::classType()
 {
 	return FIRST;
 }
-float FirstClass::Totalprice()
+float FirstClass::TotalPrice()
 {
 	return  FirstClass::tax()+InitialPrice+servicePrice;
 }
