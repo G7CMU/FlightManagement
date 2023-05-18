@@ -15,6 +15,8 @@ public:
 	int getday();
 	int getmonth();
 	int getyear();
+	void saveToFile(ofstream &fo);
+	void readFromFile(ifstream &fi);
 	friend ostream &operator << (ostream &os , Passenger a);
 	friend istream &operator >> (ostream &is, Passenger &a);
 };

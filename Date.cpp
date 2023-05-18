@@ -58,4 +58,11 @@ ostream &operator<<(ostream &os, Date &d)
 {
 	d.output();
 }
-
+void Date::saveToFile(ofstream &fo)
+{
+	fo << day << " " << month << " " << year << "\n";
+}
+void Date::readFromFile(ifstream &fi)
+{
+	fi >> day >> month >> year;
+}

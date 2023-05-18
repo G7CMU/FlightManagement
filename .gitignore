@@ -32,3 +32,9 @@
 *.app
 *.win
 *.layout
+Makefile.win
+FlightManagement.layout
+FlightManagement.layout
+*.txt
+*.layout
+*.win

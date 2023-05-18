@@ -1,5 +1,4 @@
 #include "Passenger.h"
-#include "Date.h"
 void Passenger::input()
 {
 	cin.ignore();
@@ -48,6 +47,20 @@ ostream&operator<<(ostream &os, Passenger p)
 	cout << "SDT: " << p.phoneNumber << endl;
 	cout << "Ngay, thang, nam sinh: " << p.dateOfBirth << endl;
 	return os;
+}
+void Passenger::saveToFile(ofstream &fo)
+{
+	dateOfBirth.saveToFile(fo);
+	fo << id << "\n" << name << "\n" << phoneNumber << "\n" << passengerID << "\n";
+}
+void Passenger::readFromFile(ifstream &fi)
+{
+	dateOfBirth.readFromFile(fi);
+	fi.ignore();
+	getline(fi, id);
+	getline(fi, name);
+	getline(fi, phoneNumber);
+	getline(fi, passengerID);
 }
 /*int Passenger::getday()
 {
