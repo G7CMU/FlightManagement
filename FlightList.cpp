@@ -40,38 +40,47 @@ void FlightList::output()
 		cout<<"---------------------------------"<<endl;;
 	}
 }
-//void FlightList::sortBirth()
-//{
-//	for(int i=0; i<k; i++)
-//	{
-//		for(int j=i+1; j<k; j++)
-//		{
-//			if (list[i].startDate->year>list[j].startDate->year)
-//			{
-//				swap(list[i],list[j]);
-//			}
-//		}
-//	}
-//	for(int i=0; i<n-1; i++)
-//	{
-//		for(int j=i+1; j<n; j++)
-//		{
-//			if (list[i].startDate->year==list[i+1].startDate->year)
-//			{
-//				if (list[i].startDate->month>list[i+1].startDate->month)
-//				swap(list[i],list[j]);
-//			}
-//		}
-//	}
-//	for(int i=0; i<n; i++)
-//	{
-//		for(int j=i+1; j<n; j++)
-//		{
-//			if (list[i].startDate->year!==list[i+1].startDate->year) && (list[i].startDate->year==list[i+1].startDate->year)
-//			{
-//				if (list[i].startDate->day>list[i+1].startDate->day)
-//				swap(list[i],list[j]);
-//			}
-//		}
-//	}
-//}*/
+float FlightList::totalPrice()
+{
+	float sum;
+	for(int i=0; i<k; i++)
+	{
+		sum=sum+list[i]->TotalPrice();
+	}
+	cout<<"Tong la: "<<sum<<endl;
+}
+void FlightList::sortDateStart()
+{
+	for(int i=0; i<k-1; i++)
+	{
+		for(int j=i+1; j<k; j++)
+		{
+			if (list[i]->startDate.year>list[j]->startDate.year)
+			{
+				swap(list[i],list[j]);
+			}
+		}
+	}
+	for(int i=0; i<k-1; i++)
+	{
+		for(int j=i+1; j<k; j++)
+		{
+			if (list[i]->startDate.year==list[i+1]->startDate.year)
+			{
+				if (list[i]->startDate.month>list[i+1]->startDate.month)
+				swap(list[i],list[j]);
+			}
+		}
+	}
+	for(int i=0; i<k-1; i++)
+	{
+		for(int j=i+1; j<k; j++)
+		{
+			if ((list[i]->startDate.year==list[i+1]->startDate.year) && (list[i]->startDate.year==list[i+1]->startDate.year))
+			{
+				if (list[i]->startDate.day>list[i+1]->startDate.day)
+				swap(list[i],list[j]);
+			}
+		}
+	}
+}

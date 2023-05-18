@@ -2,9 +2,13 @@
 
 void BusinessClass::input()
 {
+	int choice;
 	Flight::input();
 	cout << "WaitRoom: ";
-	waitRoom = ROOM_OF_FOUR;
+	cout << "1.ROOM_OF_FOUR!!!"<<endl;
+	cout << "Hay nhap lua chon cua ban: ";
+	cin >> choice;
+	if (choice == 1) waitRoom = ROOM_OF_FOUR;
 	// them chuc nang 
 	cin.ignore();
 	cout<<"Waiting Food: ";
@@ -13,6 +17,7 @@ void BusinessClass::input()
 	getline(cin, softDrinks);
 	cout<<"SoftDrinksPrice: ";
 	cin>>softDrinksPrice;
+	cin.ignore();
 	cout<<"Meal: ";
 	getline(cin, meal);
 	cout<<"MealPrice: ";

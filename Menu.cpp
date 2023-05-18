@@ -1,5 +1,4 @@
 #include "Menu.h"
-
 void waitForInput()
 {
 	string dumpInput;
@@ -15,20 +14,17 @@ void clearConsole()
 		system("clear");
 	#endif
 }
-
 void printLine()
 {
-	for (int i = 1; i < LINE_WIDTH; i++) 
-		if (i == 1 || i == LINE_WIDTH - 1) cout << START_CHAR;
-		else cout << LINE;
+	for (int i = 1; i < 50; i++) 
+		if (i == 1 || i == 50 - 1) cout <<"+";
+		else cout <<"-";
 	cout << "\n";
 }
-
 void printSpace(int length)
 {
 	cout << setw(length) << "";
 }
-
 void alignCenter(string text, int containerLength)
 {
 	int space = (containerLength - text.length()) / 2 - 2;
@@ -38,7 +34,6 @@ void alignCenter(string text, int containerLength)
 	printSpace(space + 1);
 	cout << (text.length() % 2 == 0 ? "|" : " |") << endl;
 }
-
 void printTableCol(string text, int containerLength)
 {
 	int space = (containerLength - text.length()) / 2;
@@ -47,14 +42,12 @@ void printTableCol(string text, int containerLength)
 	printSpace(space - 1);
 	cout << "|";
 }
-
 void printHeader(string header)
 {
 	printLine();
-	alignCenter(header, LINE_WIDTH);
+	alignCenter(header, 50);
 	printLine();
 }
-
 void mainMenu()
 {
 	int choice = 100;
@@ -66,16 +59,18 @@ void mainMenu()
 			printHeader("QUAN LY CHUYEN BAY");
 			cout << "\t1. Doc du lieu tu File\n";
 			cout << "\t2. Ghi File\n";
-			cout << "\t3. Tinh tong gia ve trong danh sach\n";
-			cout << "\t4. Tim Min/Max\n";
-			cout << "\t5. Sap xep\n";
-			cout << "\t6. Tim kiem\n";
-			cout << "\t7. Chinh sua\n";
-			cout << "\t8. Xoa khoi danh sach\n";
-			cout << "\t9. Them vao danh sach\n";
-			cout << "\t10. In hoa don\n";
-			cout << "\t11. Thong tin nhom\n";
-			cout << "\t0. Exit\n";
+			cout << "\t3. Nhap\n";
+			cout << "\t4. Xuat\n";
+			cout << "\t5. Tinh tong gia ve trong danh sach\n";
+			cout << "\t6. Tim Min/Max\n";
+			cout << "\t7. Sap xep\n";
+			cout << "\t8. Tim kiem\n";
+			cout << "\t9. Chinh sua\n";
+			cout << "\t10. Xoa khoi danh sach\n";
+			cout << "\t11. Them vao danh sach\n";
+			cout << "\t12. In hoa don\n";
+			cout << "\t13. Thong tin nhom\n";
+			cout << "\t14. Exit\n";
 			printLine();
 			cout << "Nhap lua chon: ";
 			cin >> choice;
@@ -89,19 +84,20 @@ void mainMenu()
 		{
 			case 1: readFileMenu(); break;
 			case 2: writeFileMenu(); break;
-			case 3: totalPriceMenu(); break;
-			case 4: minMaxMenu(); break;
-			case 5: sortMenu(); break;
-			case 6: filterMenu(); break;
-			case 7: editMenu(); break;
-			case 8: removeMenu(); break;
-			case 9: appendMenu(); break;
-			case 10: invoiceMenu(); break;
-			case 11: groupInfo(); break;
+			case 3: inputMenu(); break;
+			case 4: outputMenu(); break;
+			case 5: totalPriceMenu(); break;
+			case 6: minMaxMenu(); break;
+			case 7: sortMenu(); break;
+			case 8: filterMenu(); break;
+			case 9: editMenu(); break;
+			case 10: removeMenu(); break;
+			case 11: appendMenu(); break;
+			case 12: invoiceMenu(); break;
+			case 13: groupInfo(); break;
 		};
 	}
 }
-
 void readFileMenu()
 {
 	clearConsole();
@@ -113,14 +109,27 @@ void writeFileMenu()
 {
 	clearConsole();
 	printHeader("GHI FILE");
-	
+
+	waitForInput();	
+}
+void inputMenu()
+{
+	clearConsole();
+	a.input();
+	waitForInput();	
+}
+void outputMenu()
+{
+	clearConsole();
+	a.output();
 	waitForInput();	
 }
 void totalPriceMenu()
 {
 	clearConsole();
 	printHeader("TONG TIEN DANH SACH");
-	
+
+	a.totalPrice();
 	waitForInput();	
 }
 void minMaxMenu()
@@ -134,7 +143,14 @@ void sortMenu()
 {
 	clearConsole();
 	printHeader("SAP XEP");
-	
+
+	cout<<"1.Sap xep theo ngay xuat phat: "<<endl;
+	cout<<"2.Sap xep theo ngay sinh: "<<endl;
+	cout<<"3.Sap xep tong gia tang dan: "<<endl;
+	int choice;
+	cout<<"Hay nhap lua chon cua ban: ";
+	cin>>choice;
+	if (choice == 1) a.sortDateStart();
 	waitForInput();
 }
 void filterMenu()
@@ -172,7 +188,6 @@ void invoiceMenu()
 	
 	waitForInput();
 }
-
 void groupInfo()
 {
 	clearConsole();
@@ -197,7 +212,6 @@ void groupInfo()
 		 << "|" << endl;
 	waitForInput();
 }
-
 void continueMenu()
 {
 	int choice;
@@ -212,7 +226,6 @@ void continueMenu()
 		if(!validChoice(choice, 0, 1)) cout << "Lua chon khong hop le. Vui long nhap lai!\n";
 	} while (!validChoice(choice, 0, 1));
 }
-
 bool validChoice(int choice, int min, int max)
 {
 	return (choice >= min && choice <= max);

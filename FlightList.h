@@ -28,6 +28,7 @@ public:
 	void sortByidAsc();
 	void sortByidDesc();
 	void sortBybirth();
+	void sortDateStart();
 	void findById();
 	void findByName();
 	void findPassengerByFlight();

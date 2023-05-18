@@ -1,11 +1,16 @@
 #ifndef MENU_H
 #define MENU_H
-
+#include "FlightList.h"
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
-
+FlightList a;
+//class Menu
+//{
+//public:
+//FlightList a;
+//};
 const int LINE_WIDTH = 50;
 const string LINE = "-";
 const string START_CHAR = "+";
@@ -29,7 +34,8 @@ void editMenu();
 void removeMenu();
 void appendMenu();
 void invoiceMenu();
-
+void inputMenu();
+void outputMenu();
 void groupInfo();
 void continueMenu();
 
