@@ -5,12 +5,6 @@
 #include <iomanip>
 
 using namespace std;
-FlightList a;
-//class Menu
-//{
-//public:
-//FlightList a;
-//};
 const int LINE_WIDTH = 50;
 const string LINE = "-";
 const string START_CHAR = "+";
@@ -23,19 +17,19 @@ void alignCenter(string text, int containerLength);
 void printTableCol(string text, int containerLength);
 void printHeader(string header);
 
-void mainMenu();
-void readFileMenu();
-void writeFileMenu();
-void totalPriceMenu();
-void minMaxMenu();
-void sortMenu();
-void filterMenu();
-void editMenu();
-void removeMenu();
-void appendMenu();
-void invoiceMenu();
-void inputMenu();
-void outputMenu();
+void mainMenu(FlightList* list);
+void readFileMenu(FlightList* list);
+void writeFileMenu(FlightList* list);
+void totalPriceMenu(FlightList* list);
+void minMaxMenu(FlightList* list);
+void sortMenu(FlightList* list);
+void filterMenu(FlightList* list);
+void editMenu(FlightList* list);
+void removeMenu(FlightList* list);
+void appendMenu(FlightList* list);
+void invoiceMenu(FlightList* list);
+void inputMenu(FlightList* list);
+void outputMenu(FlightList* list);
 void groupInfo();
 void continueMenu();
 

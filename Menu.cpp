@@ -48,7 +48,7 @@ void printHeader(string header)
 	alignCenter(header, 50);
 	printLine();
 }
-void mainMenu()
+void mainMenu(FlightList* list)
 {
 	int choice = 100;
 	while (choice)
@@ -70,76 +70,76 @@ void mainMenu()
 			cout << "\t11. Them vao danh sach\n";
 			cout << "\t12. In hoa don\n";
 			cout << "\t13. Thong tin nhom\n";
-			cout << "\t14. Exit\n";
+			cout << "\t0. Exit\n";
 			printLine();
 			cout << "Nhap lua chon: ";
 			cin >> choice;
-			if (!validChoice(choice, 0, 11))
+			if (!validChoice(choice, 0, 13))
 			{
 				cout << "Lua chon khong hop le. Vui long nhap lai!\n";
 			}
-		} while (!validChoice(choice, 0, 11));
+		} while (!validChoice(choice, 0, 13));
 		
 		switch(choice)
 		{
-			case 1: readFileMenu(); break;
-			case 2: writeFileMenu(); break;
-			case 3: inputMenu(); break;
-			case 4: outputMenu(); break;
-			case 5: totalPriceMenu(); break;
-			case 6: minMaxMenu(); break;
-			case 7: sortMenu(); break;
-			case 8: filterMenu(); break;
-			case 9: editMenu(); break;
-			case 10: removeMenu(); break;
-			case 11: appendMenu(); break;
-			case 12: invoiceMenu(); break;
+			case 1: readFileMenu(list); break;
+			case 2: writeFileMenu(list); break;
+			case 3: inputMenu(list); break;
+			case 4: outputMenu(list); break;
+			case 5: totalPriceMenu(list); break;
+			case 6: minMaxMenu(list); break;
+			case 7: sortMenu(list); break;
+			case 8: filterMenu(list); break;
+			case 9: editMenu(list); break;
+			case 10: removeMenu(list); break;
+			case 11: appendMenu(list); break;
+			case 12: invoiceMenu(list); break;
 			case 13: groupInfo(); break;
 		};
 	}
 }
-void readFileMenu()
+void readFileMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("DOC FILE");
 	
 	waitForInput();	
 }
-void writeFileMenu()
+void writeFileMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("GHI FILE");
 
 	waitForInput();	
 }
-void inputMenu()
+void inputMenu(FlightList* list)
 {
 	clearConsole();
-	a.input();
+	list->input();
 	waitForInput();	
 }
-void outputMenu()
+void outputMenu(FlightList* list)
 {
 	clearConsole();
-	a.output();
+	list->output();
 	waitForInput();	
 }
-void totalPriceMenu()
+void totalPriceMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("TONG TIEN DANH SACH");
 
-	a.totalPrice();
+	list->totalPrice();
 	waitForInput();	
 }
-void minMaxMenu()
+void minMaxMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("TIM MIN / MAX");
 	
 	waitForInput();
 }
-void sortMenu()
+void sortMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("SAP XEP");
@@ -150,38 +150,38 @@ void sortMenu()
 	int choice;
 	cout<<"Hay nhap lua chon cua ban: ";
 	cin>>choice;
-	if (choice == 1) a.sortDateStart();
+	if (choice == 1) list->sortDateStart();
 	waitForInput();
 }
-void filterMenu()
+void filterMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("LOC");
 	
 	waitForInput();
 }
-void editMenu()
+void editMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("CHINH SUA");
 	
 	waitForInput();
 }
-void removeMenu()
+void removeMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("XOA KHOI DANH SACH");
 	
 	waitForInput();
 }
-void appendMenu()
+void appendMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("CHEN VAO DANH SACH");
 	
 	waitForInput();
 }
-void invoiceMenu()
+void invoiceMenu(FlightList* list)
 {
 	clearConsole();
 	printHeader("IN HOA DON");
