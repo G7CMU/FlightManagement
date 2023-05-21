@@ -1,26 +1,28 @@
 #ifndef FLIGHT_H
 #define FLIGHT_H
 #include <iostream>
+#include <fstream>
 #include "Passenger.h"
-#include "FlightType.h"
+
 using namespace std;
 
-class Flight 
+class Flight
 {
 public:
-	Passenger a;
+	Passenger passenger;
 	Date startDate;
 	string airlinesLabel, flightRoute, startAirport, destinationAirport,
-	flightID, flightNature, chair, destination, from, to, passengerID, typeOfLuggage;  
+			flightID, flightNature, chair, destination, from, to, typeOfLuggage;
 	int door;
 	float flightLength, timeDelay, InitialPrice;
-	
-Flight();
-virtual void input();
-virtual void output();
-virtual float tax() = 0;
-virtual FlightType classType();
-virtual float TotalPrice() = 0;
+
+	Flight();
+	virtual void input();
+	virtual void output();
+	virtual void saveToFile(ofstream &fo);
+	virtual void readFromFile(ifstream &fi);
+	virtual float tax() = 0;
+	virtual float TotalPrice() = 0;
 };
 
 #endif

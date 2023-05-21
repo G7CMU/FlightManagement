@@ -5,6 +5,7 @@
 #include <iomanip>
 
 using namespace std;
+
 const int LINE_WIDTH = 50;
 const string LINE = "-";
 const string START_CHAR = "+";

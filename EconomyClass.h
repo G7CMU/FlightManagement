@@ -1,23 +1,23 @@
 #ifndef ECONOMYCLASS_H
 #define ECONOMYCLASS_H
-
+#include <fstream>
 #include "Flight.h"
 #include "Fastfood.h"
-#include "FlightType.h"
+
 class EconomyClass : public Flight
 {
 public:
 	FASTFOOD fastFood;
 	float fastfoodPrice;
-	int vocher;
+	int voucher;
 	int ageECN;
 	float aggageWeightECN;
-	
-void input();
-void output();
-float tax();
-FlightType classType();
-float TotalPrice();
-};
 
+	void input();
+	void output();
+	void saveToFile(ofstream &fo);
+	void readFromFile(ifstream &fi);
+	float tax();
+	float TotalPrice();
+};
 #endif

@@ -2,84 +2,91 @@
 
 FlightList::FlightList()
 {
-	this->k=0;
+	this->k = 0;
 }
 void FlightList::input()
 {
 
 	while (true)
-		{
-			Flight* ds;
-			int chon, choice;
-			cout << "EconomyClass/BusinessClass/FirstClass/exit" << endl;
-			cout << "Vui long nhap lua chon che do ve theo bang sau: ";
-			cin >> chon;
-			if (chon == 1) ds = new EconomyClass;
-			if (chon == 2) ds = new BusinessClass;
-			if (chon == 3) ds = new FirstClass;
-			if (chon == 4) break;
-			ds->input();
-			list[k] = ds;
-			k++;
-			cout << "Ban co muon tiep tuc khong: ";
-			cout << "Neu co hay nhap 1: ";
-			cin >> choice;
-			if (choice == 1)
-				continue;
-			else break;
-		}
+	{
+		Flight *ds;
+		int chon, choice;
+		cout << "EconomyClass/BusinessClass/FirstClass/exit" << endl;
+		cout << "Vui long nhap lua chon che do ve theo bang sau: ";
+		cin >> chon;
+		if (chon == 1)
+			ds = new EconomyClass;
+		if (chon == 2)
+			ds = new BusinessClass;
+		if (chon == 3)
+			ds = new FirstClass;
+		if (chon == 4)
+			break;
+		ds->input();
+		list[k] = ds;
+		k++;
+		cout << "Ban co muon tiep tuc khong: ";
+		cout << "Neu co hay nhap 1: ";
+		cin >> choice;
+		if (choice == 1)
+			continue;
+		else
+			break;
+	}
 }
 void FlightList::output()
 {
-	for(int i=0; i < k; i++)
+	for (int i = 0; i < k; i++)
 	{
-		cout<<"---------------------------------"<<endl;;
+		cout << "---------------------------------" << endl;
+		;
 		list[i]->output();
-		cout<<"Tax: "<<list[i]->tax()<<endl;
-		cout<<"Price: "<<list[i]->TotalPrice()<<endl;
-		cout<<"---------------------------------"<<endl;;
+		cout << "Tax: " << list[i]->tax() << endl;
+		cout << "Price: " << list[i]->TotalPrice() << endl;
+		cout << "---------------------------------" << endl;
+		;
 	}
 }
 float FlightList::totalPrice()
 {
 	float sum;
-	for(int i=0; i<k; i++)
+	for (int i = 0; i < k; i++)
 	{
-		sum=sum+list[i]->TotalPrice();
+		sum = sum + list[i]->TotalPrice();
 	}
-	cout<<"Tong la: "<<sum<<endl;
+	cout << "Tong la: " << sum << endl;
 }
 void FlightList::sortDateStart()
 {
-	for(int i=0; i<k-1; i++)
+	for (int i = 0; i < k - 1; i++)
 	{
-		for(int j=i+1; j<k; j++)
+		for (int j = i + 1; j < k; j++)
 		{
-			if (list[i]->startDate.year>list[j]->startDate.year)
+			if (list[i]->startDate.year > list[j]->startDate.year)
 			{
-				swap(list[i],list[j]);
+				swap(list[i], list[j]);
 			}
 		}
 	}
-	for(int i=0; i<k-1; i++)
+	for (int i = 0; i < k - 1; i++)
 	{
-		for(int j=i+1; j<k; j++)
+		for (int j = i + 1; j < k; j++)
 		{
-			if (list[i]->startDate.year==list[i+1]->startDate.year)
+			if (list[i]->startDate.year == list[i + 1]->startDate.year)
 			{
-				if (list[i]->startDate.month>list[i+1]->startDate.month)
-				swap(list[i],list[j]);
+				if (list[i]->startDate.month > list[i + 1]->startDate.month)
+					swap(list[i], list[j]);
 			}
 		}
 	}
-	for(int i=0; i<k-1; i++)
+	for (int i = 0; i < k - 1; i++)
 	{
-		for(int j=i+1; j<k; j++)
+		for (int j = i + 1; j < k; j++)
 		{
-			if ((list[i]->startDate.year==list[i+1]->startDate.year) && (list[i]->startDate.year==list[i+1]->startDate.year))
+			if ((list[i]->startDate.year == list[i + 1]->startDate.year) && (list[i]->startDate.year == list[i + 1]->startDate.year))
 			{
-				if (list[i]->startDate.day>list[i+1]->startDate.day)
-				swap(list[i],list[j]);
+				if (list[i]->startDate.day > list[i + 1]->startDate.day)
+					swap(list[i], list[j]);
 			}
 		}
 	}

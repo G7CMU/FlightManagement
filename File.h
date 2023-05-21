@@ -15,4 +15,3 @@ void readFromFile(FlightList &list);
 void readFromTempFile(FlightList &list);
 
 #endif
-

@@ -1,9 +1,9 @@
 #ifndef CARD_E
 #define CARD_E
 
-enum CARD 
+enum CARD
 {
-	NODE = 0,
+	NONE = 0,
 	GOLD = 10,
 	DIAMOND = 15,
 	PLATINUM = 20

@@ -4,6 +4,7 @@
 #include "WaitingRoom.h"
 #include "Card.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -15,10 +16,11 @@ public:
 	string waitingFood, softDrinks, meal;
 	int ageBSN;
 	float softDrinksPrice, mealPrice, aggageWeightBSN;
-void input();
-void output();
-float tax();
-FlightType classType();
-float TotalPrice();
+	void input();
+	void output();
+	void saveToFile(ofstream &fo);
+	void readFromFile(ifstream &fi);
+	float tax();
+	float TotalPrice();
 };
 #endif

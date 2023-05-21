@@ -1,8 +1,10 @@
 #ifndef FLIGHTTYPE_E
 #define FLIGHTTYPE_E
-enum FlightType 
+enum FlightType
 {
-	NONE, ECONOMY, BUSINESS, FIRST
+	NONE,
+	ECONOMY,
+	BUSINESS,
+	FIRST
 };
 #endif
-

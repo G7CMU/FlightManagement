@@ -13,7 +13,7 @@ class FlightList
 {
 public:
 	int k;
-	Flight* list[100];
+	Flight *list[100];
 	FlightList();
 	void input();
 	void output();
@@ -22,7 +22,7 @@ public:
 	void exportToFile();
 	float totalPrice();
 	float minPrice();
- 	float maxPrice();
+	float maxPrice();
 	void sortByPriceAsc();
 	void sortByPriceDesc();
 	void sortByidAsc();
