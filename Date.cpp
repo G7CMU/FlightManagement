@@ -70,3 +70,9 @@ void Date::readFromFile(ifstream &fi)
 {
 	fi >> day >> month >> year;
 }
+string Date::toString()
+{
+	char toReturn[30];
+	sprintf(toReturn, "%d%d%d", year, month, day);
+	return toReturn;
+}

@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ public:
 	void output();
 	void saveToFile(ofstream &fo);
 	void readFromFile(ifstream &fi);
+	string toString();
 	friend istream &operator>>(istream &is, Date &d);
 	friend ostream &operator<<(ostream &os, Date &d);
 	friend bool isValidDate(int day, int month, int year);
