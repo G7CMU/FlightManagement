@@ -9,13 +9,16 @@ using namespace std;
 
 void testFileInput();
 void testFileOutput();
+void testPassenger();
 
 int main(int argc, char **argv)
 {
 	FlightList* list = new FlightList();
 //	mainMenu(list);
 	
-	testFileInput();
+//	testFileInput();
+
+	testPassenger();
 
 	return 0;
 }
@@ -38,7 +41,16 @@ void testFileInput()
 	f->readFromFile(ffi);
 	f->output();
 }
+
 void testFileOutput();
+
+void testPassenger()
+{
+	Passenger p;
+	
+	p.input();
+	p.output();
+}
 
 
 /**

@@ -6,18 +6,44 @@ Passenger::Passenger()
 
 void Passenger::input()
 {
+	string _id, _passengerID, _name, _phoneNumber;
+	Date _dateOfBirth;
+	int choice;
+	
 	cin.ignore();
 	cout << "Nhap ID: ";
-	getline(cin, id);
+	getline(cin, _id);
 	cout << "Nhap ID hanh khach: ";
-	getline(cin, passengerID);
+	getline(cin, _passengerID);
 	cout << "Nhap ten: ";
-	getline(cin, name);
+	getline(cin, _name);
 	cout << "Nhap ngay, thang, nam sinh: \n";
-	cin >> dateOfBirth;
+	cin >> _dateOfBirth;
 	cout << "Nhap SDT: ";
 	cin.ignore();
-	getline(cin, phoneNumber);
+	getline(cin, _phoneNumber);
+	
+	if (this->readFromFile(_phoneNumber))
+	{
+		cout << "Da ton tai khach hang voi SDT: " << phoneNumber << endl;
+		this->output();
+		cout << "Ban co muon ghi de thong tin khong\n\n";
+		cout << "0. Khong\n";
+		cout << "1. Co\n";
+		cout << "Nhap lua chon: ";
+		cin >> choice;
+	}
+	
+	if (choice == 1)
+	{
+		this->id = _id;
+		this->passengerID = _passengerID;
+		this->name = _name;
+		this->dateOfBirth = _dateOfBirth;
+		this->phoneNumber = _phoneNumber;
+	}
+	
+	this->saveToFile();
 }
 
 void Passenger::output()
