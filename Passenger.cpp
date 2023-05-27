@@ -8,7 +8,7 @@ void Passenger::input()
 {
 	string _id, _passengerID, _name, _phoneNumber;
 	Date _dateOfBirth;
-	int choice;
+	int choice = 1;
 	
 	cin.ignore();
 	cout << "Nhap ID: ";
