@@ -7,11 +7,13 @@
 
 using namespace std;
 
+const int SEC_IN_ONE_DAY = 86400;
+
 class Date
 {
 public:
 	int day, month, year;
-
+	bool leapYear;
 	Date();
 	Date(int day, int month, int year);
 	void input();
@@ -24,4 +26,7 @@ public:
 	friend bool isValidDate(int day, int month, int year);
 };
 
+bool operator==(Date d1, Date d2);
+bool operator<(Date d1, Date d2);
+bool operator>(Date d1, Date d2);
 #endif
