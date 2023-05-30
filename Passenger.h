@@ -6,7 +6,7 @@
 #include "Date.h"
 #include <string>
 
-const string BASE_PASSENGER_PATH = "./passenger/";
+const string BASE_PASSENGER_PATH = "./data/passenger/";
 
 using namespace std;
 class Passenger
