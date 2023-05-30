@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Flight.h"
 #include "Fastfood.h"
+#include "FlightType.h"
 
 class EconomyClass : public Flight
 {
@@ -19,5 +20,6 @@ public:
 	void readFromFile(ifstream &fi);
 	float tax();
 	float TotalPrice();
+	FlightType getType();
 };
 #endif

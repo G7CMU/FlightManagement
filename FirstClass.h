@@ -21,5 +21,6 @@ public:
 	float tax();
 	float TotalPrice();
 	friend ifstream& operator>>(ifstream &is, PRIVATE_LINE &w);
+	FlightType getType();
 };
 #endif

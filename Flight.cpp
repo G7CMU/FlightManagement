@@ -149,3 +149,7 @@ void Flight::readFromFile(ifstream &fi)
 	getline(fi, typeOfLuggage);
 	fi >> door >> flightLength >> timeDelay >> InitialPrice;
 }
+FlightType Flight::getType()
+{
+	return NIL;
+}

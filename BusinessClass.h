@@ -22,5 +22,6 @@ public:
 	void readFromFile(ifstream &fi);
 	float tax();
 	float TotalPrice();
+	FlightType getType();
 };
 #endif

@@ -85,10 +85,7 @@ float FirstClass::TotalPrice()
 }
 void FirstClass::saveToFile(ofstream &fo)
 {
-//	PRIVATE_LINE privateLine;
-//	string drink, eat, service;
-//	float priceOfDrink, eatPrice, servicePrice, aggageWeightF;
-//	int roomEat, accumulation, ageF;
+	fo << getType() << " ";
 	Flight::saveToFile(fo);
 	fo << privateLine << "\n"
 	   << drink << "\n" << eat << "\n"
@@ -111,4 +108,8 @@ void FirstClass::readFromFile(ifstream &fi)
 	   >> ageF;
 	   
 	privateLine = (PRIVATE_LINE)_privateLine;
+}
+FlightType getType()
+{
+	return FirstClass::FIRST;
 }

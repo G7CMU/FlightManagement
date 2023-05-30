@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include "Passenger.h"
+#include "FlightType.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ public:
 	virtual void readFromFile(ifstream &fi);
 	virtual float tax() = 0;
 	virtual float TotalPrice() = 0;
+	virtual FlightType getType();
 };
 
 #endif

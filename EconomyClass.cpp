@@ -62,6 +62,7 @@ float EconomyClass::TotalPrice()
 }
 void EconomyClass::saveToFile(ofstream &fo)
 {
+	fo << getType() << " ";
 	Flight::saveToFile(fo);
 	fo << fastFood << " " << voucher << " " << ageECN << " " << aggageWeightECN << "\n";	
 }
@@ -72,4 +73,7 @@ void EconomyClass::readFromFile(ifstream &fi)
 	fi >> _fastFood >> voucher >> ageECN >> aggageWeightECN;
 	fastFood = (FASTFOOD)_fastFood;
 }
-
+FlightType EconomyClass::getType()
+{
+	return ECONOMY;
+}

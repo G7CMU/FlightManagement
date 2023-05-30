@@ -80,6 +80,7 @@ float BusinessClass::TotalPrice()
 }
 void BusinessClass::saveToFile(ofstream &fo)
 {
+	fo << getType() << " ";
 	Flight::saveToFile(fo);
 	fo << waitRoom << " " << card << "\n"
 	   << waitingFood << "\n" << softDrinks << "\n" 
@@ -99,4 +100,8 @@ void BusinessClass::readFromFile(ifstream &fi)
 	
 	waitRoom = (WAITING_ROOM)_waitRoom;
 	card = (CARD)_card;
+}
+FlightType BusinessClass::getType()
+{
+	return BUSINESS;
 }

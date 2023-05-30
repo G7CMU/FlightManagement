@@ -2,7 +2,7 @@
 #define FLIGHTTYPE_E
 enum FlightType
 {
-	NONE,
+	NIL,
 	ECONOMY,
 	BUSINESS,
 	FIRST

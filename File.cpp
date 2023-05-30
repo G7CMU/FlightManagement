@@ -31,13 +31,24 @@ void readFromFile(FlightList*& list)
 {
 	ifstream fi(DATA_FILE.c_str());
   	Flight* toRead;
+  	FlightType type;
+  	int type_i;
   	if (fi.is_open()) 
 	{
 		for (int i = 0; i < list->list.size(); i++)
 			while (!fi.eof()) {
-				
+				fi >> type_i;
+				type = (FlightType)type_i;
+				switch(type) 
+				{
+					case ECONOMY: toRead = new EconomyClass(); break;
+					case BUSINESS: toRead = new BusinessClass(); break;
+					case FIRST: toRead = new FirstClass(); break;
+				}
+				toRead->readFromFile(fi);
+				list->list.push_back(toRead);
 			}
-  				toRead->readFromFile(fi);
+  				
   		fi.close();
 	}
   	else 
@@ -46,14 +57,27 @@ void readFromFile(FlightList*& list)
 void readFromTempFile(FlightList*& list)
 {
 	ifstream fi(TEMP_FILE.c_str());
-  	
+  	Flight* toRead;
+  	FlightType type;
+  	int type_i;
   	if (fi.is_open()) 
 	{
 		for (int i = 0; i < list->list.size(); i++)
-			while (!fi.eof())
-  				list->list[i]->readFromFile(fi);
+			while (!fi.eof()) {
+				fi >> type_i;
+				type = (FlightType)type_i;
+				switch(type) 
+				{
+					case ECONOMY: toRead = new EconomyClass(); break;
+					case BUSINESS: toRead = new BusinessClass(); break;
+					case FIRST: toRead = new FirstClass(); break;
+				}
+				toRead->readFromFile(fi);
+				list->list.push_back(toRead);
+			}
+  				
   		fi.close();
 	}
-  	else 
+  	else
   		cout << "File not found";
 }
