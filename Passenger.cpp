@@ -115,7 +115,7 @@ void Passenger::saveToFile()
 
 bool Passenger::readFromFile(string _phoneNumber)
 {
-	string filePath = "./passenger/" + _phoneNumber + ".txt";
+	string filePath = BASE_PASSENGER_PATH + _phoneNumber + ".txt";
 	ifstream fi(filePath.c_str());
 	dateOfBirth.readFromFile(fi);
 	fi.ignore();
