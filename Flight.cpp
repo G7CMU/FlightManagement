@@ -52,6 +52,7 @@ void Flight::input()
 
 	cout << "AirlinesLabel: ";
 	getline(cin, airlinesLabel);
+//		cin.ignore();
 	cout << "FlightRoute: ";
 	getline(cin, flightRoute);
 	cout << "StartAirport: ";
@@ -65,7 +66,9 @@ void Flight::input()
 	cin >> flightLength;
 	cout << "flightID: ";
 	cin.ignore();
+//	cin>>flightID;
 	getline(cin, flightID);
+//	cin.ignore();
 	cout << "flightNature(noi dia, ngoai dia): ";
 	getline(cin, flightNature);
 	cout << "Door: ";
@@ -89,7 +92,7 @@ void Flight::input()
 }
 void Flight::output()
 {
-	cout << "Thong tin khach hang:\n\n";
+	cout << "---------Thong tin khach hang:-----------\n\n";
 	passenger.output();
 	cout << "\n\nThong tin chuyen bay:\n\n";
 	cout << "AirlinesLabel: " << airlinesLabel << endl;
@@ -108,6 +111,7 @@ void Flight::output()
 	cout << "To: " << to << endl;
 	cout << "TypeOfLuggage: " << typeOfLuggage << endl;
 	cout << "InitialPrice: " << InitialPrice << endl;
+	cout << "==========================================="<<endl;
 }
 float Flight::TotalPrice()
 {

@@ -3,7 +3,6 @@
 #include "Flight.h"
 #include "WaitingRoom.h"
 #include "Card.h"
-#include <iostream>
 #include <fstream>
 
 using namespace std;
@@ -15,6 +14,7 @@ public:
 	CARD card;
 	string waitingFood, softDrinks, meal;
 	int ageBSN;
+	int roomChoice;
 	float softDrinksPrice, mealPrice, aggageWeightBSN;
 	void input();
 	void output();
@@ -23,5 +23,6 @@ public:
 	float tax();
 	float TotalPrice();
 	FlightType getType();
+	int cardChoice;
 };
 #endif

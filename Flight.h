@@ -22,7 +22,7 @@ public:
 	virtual void output();
 	virtual void saveToFile(ofstream &fo);
 	virtual void readFromFile(ifstream &fi);
-	virtual float tax() = 0;
+	virtual float tax() = 0;      
 	virtual float TotalPrice() = 0;
 	virtual FlightType getType();
 };

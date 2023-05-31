@@ -156,15 +156,22 @@ void totalPriceMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("TONG TIEN DANH SACH");
-
-	list->totalPrice();
+	list->TTotalPrice();
 	waitForInput();
 }
 void minMaxMenu(FlightList *list)
 {
 	clearConsole();
+	int choice;
 	printHeader("TIM MIN / MAX");
-
+	cout<<"1.Tim min gia ve phai tra. "<<endl;
+	cout<<"2.tim max gia ve phai tra. "<<endl;
+	cout<<"Hay nhap su lua chon cua ban: ";
+	cin>>choice;
+	if (choice == 1) 
+		list->minPrice();
+	if (choice == 2)
+		list->maxPrice();
 	waitForInput();
 }
 void sortMenu(FlightList *list)
@@ -175,46 +182,88 @@ void sortMenu(FlightList *list)
 	cout << "1.Sap xep theo ngay xuat phat: " << endl;
 	cout << "2.Sap xep theo ngay sinh: " << endl;
 	cout << "3.Sap xep tong gia tang dan: " << endl;
+	cout << "4.Sap xep tong gia giam dan: "<<endl;
+	cout << "5.Sap xep ID hanh khach tang dan: "<<endl;
+	cout << "6.Sap xep ID hanh khach giam dan:  "<<endl;	
 	int choice;
 	cout << "Hay nhap lua chon cua ban: ";
 	cin >> choice;
 	if (choice == 1)
-		list->sortDateStart();
+		list->sortDateStart1();
+	if (choice == 2)
+		list->sortBybirth();
+	if (choice == 3)
+		list->sortByPriceAsc();
+	if (choice == 4)
+		list->sortByPriceDesc();
+	if (choice == 5)
+		list->sortByidAsc();
+	if (choice == 6)
+		list->sortByidDesc();
 	waitForInput();
 }
 void filterMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("LOC");
-
+	list->findall();
 	waitForInput();
 }
 void editMenu(FlightList *list)
 {
+	int choice;
 	clearConsole();
 	printHeader("CHINH SUA");
-
+	
+	while (true)
+	{
+		cout<<"1.Chinh sua id hanh khach."<<endl;
+		cout<<"2.Chinh sua ma chuyen bay."<<endl;
+		cout<<"3.Chinh sua thoi gian."<<endl;
+		cout<<"4.Chinh sua noi den."<<endl;
+		cout<<"5.exit"<<endl;
+		cout<<"Hay nhap lua chon cua minh: ";
+		cin>>choice;
+		if (choice==1) list->editPassengerById();
+		if (choice==2) list->editFlight();
+		if (choice==3) list->editTime();
+		if (choice==4) list->editDestination();
+		if (choice==5) break;
+	}
 	waitForInput();
 }
 void removeMenu(FlightList *list)
 {
+	int choice;
 	clearConsole();
 	printHeader("XOA KHOI DANH SACH");
-
+	while (true)
+	{
+		cout<<"1.Xoa danh sach theo ID."<<endl;
+		cout<<"2.Xoa danh sach theo ten."<<endl;
+		cout<<"3.Xoa danh sach theo cong vao."<<endl;
+		cout<<"4.Xoa danh sach theo noi den."<<endl;
+		cout<<"============================="<<endl;
+		if (choice==1) list->removeById();
+		if (choice==2) list->removeByName();
+		if (choice==3) list->removeByDoor();
+		if (choice==4) list->removeByDestination();
+		cout<<"Hay nhap lai!!"<<endl;
+	}
 	waitForInput();
 }
 void appendMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("CHEN VAO DANH SACH");
-
+	list->appendPassenger();
 	waitForInput();
 }
 void invoiceMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("IN HOA DON");
-
+//	list->printinvoice();
 	waitForInput();
 }
 void groupInfo()
@@ -229,16 +278,17 @@ void groupInfo()
 	printTableCol("SDT", 20);
 	printTableCol("Mail", 25);
 	cout << endl;
-	cout << "\t|" << left << setw(19) << "28211106319"
-			 << "|" << left << setw(29) << "Nguyen Ba Khoa"
-			 << "|" << left << setw(18) << "0943923714"
-			 << "|" << left << setw(23) << "nbk2124.z@gmail.com"
-			 << "|" << endl;
 	cout << "\t|" << left << setw(19) << "28219005880"
 			 << "|" << left << setw(29) << "Ho Thanh Tien"
 			 << "|" << left << setw(18) << "0912590577"
 			 << "|" << left << setw(23) << "hothanhtienqb@gmail.com"
 			 << "|" << endl;
+	cout << "\t|" << left << setw(19) << "28211106319"
+			 << "|" << left << setw(29) << "Nguyen Ba Khoa"
+			 << "|" << left << setw(18) << "0943923714"
+			 << "|" << left << setw(23) << "nbk2124.z@gmail.com"
+			 << "|" << endl;
+	
 	waitForInput();
 }
 void continueMenu()
@@ -251,7 +301,6 @@ void continueMenu()
 		cout << "1. Tiep tuc\n";
 		cout << "Nhap lua chon: ";
 		cin >> choice;
-
 		if (!validChoice(choice, 0, 1))
 			cout << "Lua chon khong hop le. Vui long nhap lai!\n";
 	} while (!validChoice(choice, 0, 1));
