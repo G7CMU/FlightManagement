@@ -1,47 +1,35 @@
 #include "FirstClass.h"
 
-//ifstream& operator>>(ifstream &is, PRIVATE_LINE &p)
-//{
-//	int val;
-//	is >> val;
-//	
-//	switch(val)
-//	{
-//		case 0: p = NO_LINE; break;
-//		case 300000: p = QUEUE_LINE; break;
-//		case 2000000: p = NO_QUEUE_LINE; break;
-//	}
-//}
 void FirstClass::input()
 {
+	int lineChoice;
 	Flight::input();
-	cout << "---------PrivateLine----------"<<endl;
-	cout << "|1.NO_LINE = 0                |"<<endl; 
-	cout << "|2.QUEUE_LINE = 100000        |"<<endl;
-	cout << "|3.NO_QUEUE_LINE = 200000     |"<<endl;
-	cout << "------------------------------"<<endl;
-	cout << "Vui long nhap cong vao: ";
+	cout << "Private Line: " << endl;
+	cout << "1. NO LINE         0" << endl;
+	cout << "2. QUEUE LINE      100000" << endl;
+	cout << "3. NO QUEUE LINE   200000" << endl;
+	cout << "Nhap lua chon: ";
 	cin >> lineChoice;
 	while (true)
 	{
-		if (lineChoice==1)
+		if (lineChoice == 1)
 		{
-			privateLine = NO_LINE; 
+			privateLine = NO_LINE;
 			break;
 		}
-		if (lineChoice==2)
+		if (lineChoice == 2)
 		{
 			privateLine = QUEUE_LINE;
 			break;
 		}
-		if (lineChoice==3) 
+		if (lineChoice == 3)
 		{
-			privateLine = NO_QUEUE_LINE; 
+			privateLine = NO_QUEUE_LINE;
 			break;
 		}
-		cout<<"Vui long nhap lai: "<<endl;
+		cout << "Vui long nhap lai: " << endl;
 	}
-	cout<<"Phi vao cong la: "<<	privateLine<<endl;
+	cout << "Phi vao cong la: " << privateLine << endl;
 	cin.ignore();
 	cout << "Drink: ";
 	getline(cin, drink);
@@ -70,9 +58,18 @@ void FirstClass::output()
 {
 	Flight::output();
 	cout << "PrivateLine: ";
-	if (lineChoice==1) cout<<"Cong vao la: NO_LINE"<<endl; 
-	if (lineChoice==2) cout<<"Cong vao la: QUEUE_LINE"<<endl; 
-	if (lineChoice==3) cout<<"Cong vao la: NO_QUEUE_LINE"<<endl; 
+	switch (privateLine)
+	{
+	case NO_LINE:
+		cout << "NO LINE\n";
+		break;
+	case QUEUE_LINE:
+		cout << "QUEUE LINE\n";
+		break;
+	case NO_QUEUE_LINE:
+		cout << "NO QUEUE LINE\n";
+		break;
+	}
 	cout << "Drink: " << drink << endl;
 	cout << "PriceOfDrink: " << priceOfDrink << endl;
 	cout << "Eat: " << eat << endl;
@@ -86,45 +83,28 @@ void FirstClass::output()
 }
 float FirstClass::tax()
 {
-	int pay2;
-	if (lineChoice==1) pay2= 0;
-	if (lineChoice==2) pay2= 100000;
-	if (lineChoice==3) pay2= 200000;
-	int sale;
-	if (accumulation > 30)
-		sale = InitialPrice * 0.3;
-	else if (accumulation > 15)
-		sale = InitialPrice * 0.15;
-	else
-		sale = 0;
-	int pay;
-	if (ageF > 62 && ageF < 10)
-		pay = InitialPrice * 0.1;
-	else
-		pay = 0;
-	int pay1;
-	if (aggageWeightF > 20)
-		pay1 = InitialPrice * 0.4;
-	else
-		pay1 = 0;
-	return pay+pay1+pay2-sale;
+	return 0.2;
 }
 float FirstClass::TotalPrice()
 {
-	return FirstClass::tax() + InitialPrice + servicePrice + priceOfDrink + eatPrice;
+	return this->tax() * (initialPrice + servicePrice + priceOfDrink + eatPrice);
 }
 void FirstClass::saveToFile(ofstream &fo)
 {
 	fo << getType() << " ";
 	Flight::saveToFile(fo);
-	fo << privateLine << "\n"
-	   << drink << "\n" << eat << "\n"
-	   << priceOfDrink << " " << eatPrice << " "
-	   << servicePrice << " " << aggageWeightF << " "
-	   << roomEat << " " << accumulation << " "
-	   << ageF << "\n";
+	fo << privateLine << " "
+		 << drink << "\n"
+		 << eat << "\n"
+		 << priceOfDrink << " " << eatPrice << " "
+		 << servicePrice << " " << aggageWeightF << " "
+		 << roomEat << " " << accumulation << " "
+		 << ageF << "\n";
 }
-
+FlightType FirstClass::getType()
+{
+	return FIRST;
+}
 void FirstClass::readFromFile(ifstream &fi)
 {
 	int _privateLine;
@@ -138,8 +118,4 @@ void FirstClass::readFromFile(ifstream &fi)
 	   >> ageF;
 	   
 	privateLine = (PRIVATE_LINE)_privateLine;
-}
-FlightType getType()
-{
-	return FirstClass::FIRST;
 }

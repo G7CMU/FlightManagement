@@ -59,20 +59,20 @@ void mainMenu(FlightList *list)
 		{
 			clearConsole();
 			printHeader("QUAN LY CHUYEN BAY");
-			cout << "\t1. Doc du lieu tu File\n";
-			cout << "\t2. Ghi File\n";
-			cout << "\t3. Nhap\n";
-			cout << "\t4. Xuat\n";
-			cout << "\t5. Tinh tong gia ve trong danh sach\n";
-			cout << "\t6. Tim Min/Max\n";
-			cout << "\t7. Sap xep\n";
-			cout << "\t8. Tim kiem\n";
-			cout << "\t9. Chinh sua\n";
+			cout << "\t1.  Doc du lieu tu File\n";
+			cout << "\t2.  Ghi File\n";
+			cout << "\t3.  Nhap\n";
+			cout << "\t4.  Xuat\n";
+			cout << "\t5.  Tinh tong gia ve trong danh sach\n";
+			cout << "\t6.  Tim Min/Max\n";
+			cout << "\t7.  Sap xep\n";
+			cout << "\t8.  Tim kiem\n";
+			cout << "\t9.  Chinh sua\n";
 			cout << "\t10. Xoa khoi danh sach\n";
 			cout << "\t11. Them vao danh sach\n";
 			cout << "\t12. In hoa don\n";
 			cout << "\t13. Thong tin nhom\n";
-			cout << "\t0. Exit\n";
+			cout << "\t0.  Exit\n";
 			printLine();
 			cout << "Nhap lua chon: ";
 			cin >> choice;
@@ -131,6 +131,8 @@ void readFileMenu(FlightList *list)
 	clearConsole();
 	printHeader("DOC FILE");
 
+
+
 	waitForInput();
 }
 void writeFileMenu(FlightList *list)
@@ -156,7 +158,7 @@ void totalPriceMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("TONG TIEN DANH SACH");
-	list->TTotalPrice();
+	list->TotalPrice();
 	waitForInput();
 }
 void minMaxMenu(FlightList *list)
@@ -206,7 +208,7 @@ void filterMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("LOC");
-	list->findall();
+	// list->findAll();
 	waitForInput();
 }
 void editMenu(FlightList *list)
@@ -224,7 +226,7 @@ void editMenu(FlightList *list)
 		cout<<"5.exit"<<endl;
 		cout<<"Hay nhap lua chon cua minh: ";
 		cin>>choice;
-		if (choice==1) list->editPassengerById();
+		if (choice==1) list->editPassengerByPhoneNumber();
 		if (choice==2) list->editFlight();
 		if (choice==3) list->editTime();
 		if (choice==4) list->editDestination();

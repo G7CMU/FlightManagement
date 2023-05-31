@@ -14,7 +14,6 @@ public:
 	CARD card;
 	string waitingFood, softDrinks, meal;
 	int ageBSN;
-	int roomChoice;
 	float softDrinksPrice, mealPrice, aggageWeightBSN;
 	void input();
 	void output();
@@ -23,6 +22,5 @@ public:
 	float tax();
 	float TotalPrice();
 	FlightType getType();
-	int cardChoice;
 };
 #endif

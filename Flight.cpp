@@ -1,13 +1,12 @@
 #include "Flight.h"
+
 Flight::Flight()
 {
 }
+
 void Flight::input()
 {
 	int choice;
-	cin.ignore();
-	//	cout << "Passenger ID: ";
-	//	getline(cin, passengerID);
 	cout << "Hanh khach nay da ton tai chua\n 1.Da ton tai\n 2.Chua ton tai \n";
 	cout << "Nhap lua chon: ";
 	cin >> choice;
@@ -52,7 +51,7 @@ void Flight::input()
 
 	cout << "AirlinesLabel: ";
 	getline(cin, airlinesLabel);
-//		cin.ignore();
+	//		cin.ignore();
 	cout << "FlightRoute: ";
 	getline(cin, flightRoute);
 	cout << "StartAirport: ";
@@ -66,9 +65,9 @@ void Flight::input()
 	cin >> flightLength;
 	cout << "flightID: ";
 	cin.ignore();
-//	cin>>flightID;
+	//	cin>>flightID;
 	getline(cin, flightID);
-//	cin.ignore();
+	//	cin.ignore();
 	cout << "flightNature(noi dia, ngoai dia): ";
 	getline(cin, flightNature);
 	cout << "Door: ";
@@ -88,11 +87,11 @@ void Flight::input()
 	cout << "typeOfLuggage: ";
 	getline(cin, typeOfLuggage);
 	cout << "initialPrice: ";
-	cin >> InitialPrice;
+	cin >> initialPrice;
 }
+
 void Flight::output()
 {
-	cout << "---------Thong tin khach hang:-----------\n\n";
 	passenger.output();
 	cout << "\n\nThong tin chuyen bay:\n\n";
 	cout << "AirlinesLabel: " << airlinesLabel << endl;
@@ -110,13 +109,14 @@ void Flight::output()
 	cout << "From: " << from << endl;
 	cout << "To: " << to << endl;
 	cout << "TypeOfLuggage: " << typeOfLuggage << endl;
-	cout << "InitialPrice: " << InitialPrice << endl;
-	cout << "==========================================="<<endl;
+	cout << "InitialPrice: " << initialPrice << endl;
 }
+
 float Flight::TotalPrice()
 {
 	return 0;
 }
+
 void Flight::saveToFile(ofstream &fo)
 {
 	passenger.saveToFile(fo);
@@ -133,12 +133,19 @@ void Flight::saveToFile(ofstream &fo)
 		 << to << "\n"
 		 << typeOfLuggage << "\n"
 		 << door << " "
-		 << flightLength << " " << timeDelay << " " << InitialPrice << "\n";
+		 << flightLength << " " << timeDelay << " " << initialPrice << " ";
 }
+
+FlightType Flight::getType()
+{
+	return NIL;
+}
+
 void Flight::readFromFile(ifstream &fi)
 {
 	passenger.readFromFile(fi);
 	startDate.readFromFile(fi);
+	
 	fi.ignore();
 	getline(fi, airlinesLabel);
 	getline(fi, flightRoute);
@@ -151,9 +158,5 @@ void Flight::readFromFile(ifstream &fi)
 	getline(fi, from);
 	getline(fi, to);
 	getline(fi, typeOfLuggage);
-	fi >> door >> flightLength >> timeDelay >> InitialPrice;
-}
-FlightType Flight::getType()
-{
-	return NIL;
+	fi >> door >> flightLength >> timeDelay >> initialPrice;
 }

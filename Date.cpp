@@ -2,7 +2,7 @@
 
 bool isValidDate(int day, int month, int year)
 {
-	//					     1   2   3   4   5   6   7   8   9  10  11  12
+	//					             1   2   3   4   5   6   7   8   9  10  11  12
 	int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	bool leapYear = year % 4 == 0 || (year % 100 == 0 && year % 400 == 0);
 
@@ -70,7 +70,7 @@ void Date::readFromFile(ifstream &fi)
 {
 	fi >> day >> month >> year;
 }
-//string Date::toString()
+// string Date::toString()
 //{
 //	char toReturn[30];
 //	char _month[2];
@@ -79,17 +79,17 @@ void Date::readFromFile(ifstream &fi)
 //	sprintf(_day, "%s%d", (this->day < 10 ? "0" : ""), this->day);
 //	sprintf(toReturn, "%d%s%s", year, _month, _day);
 //	return toReturn;
-//}
+// }
 //
-//bool operator==(Date d1, Date d2)
+// bool operator==(Date d1, Date d2)
 //{
 //	return d1.toString() == d2.toString();
-//}
-//bool operator<(Date d1, Date d2)
+// }
+// bool operator<(Date d1, Date d2)
 //{
 //	return d1.toString() < d2.toString();
-//}
-//bool operator>(Date d1, Date d2)
+// }
+// bool operator>(Date d1, Date d2)
 //{
 //	return d1.toString() > d2.toString();
-//}
+// }

@@ -20,7 +20,6 @@ public:
 	void readFromFile(ifstream &fi);
 	float tax();
 	float TotalPrice();
-	int lineChoice;
 	friend ifstream& operator>>(ifstream &is, PRIVATE_LINE &w);
 	FlightType getType();
 };

@@ -13,7 +13,6 @@ public:
 	int voucher;
 	int ageECN;
 	float aggageWeightECN;
-	int foodChoice;
 	void input();
 	void output();
 	void saveToFile(ofstream &fo);

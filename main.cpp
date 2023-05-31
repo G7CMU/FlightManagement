@@ -4,52 +4,18 @@
 #include "Date.h"
 #include "Passenger.h"
 #include "FlightList.h"
+#include "File.h"
 
 using namespace std;
-
-void testFileInput();
-void testFileOutput();
-void testPassenger();
 
 int main(int argc, char **argv)
 {
 	FlightList* list = new FlightList();
-//	mainMenu(list);
-	
-//	testFileInput();
-
-	testPassenger();
-
+	readFromFile(list);
+	mainMenu(list);
+	saveToFile(list);
+	saveToTempFile(list);
 	return 0;
-}
-
-void testFileInput()
-{
-	ifstream efi("e_c.txt");
-	ifstream bfi("b_c.txt");
-	ifstream ffi("f_c.txt");
-	
-	EconomyClass* e = new EconomyClass();
-	e->readFromFile(efi);
-	e->output();
-	
-	BusinessClass* b = new BusinessClass();
-	b->readFromFile(bfi);
-	b->output();
-	
-	FirstClass* f = new FirstClass();
-	f->readFromFile(ffi);
-	f->output();
-}
-
-void testFileOutput();
-
-void testPassenger()
-{
-	Passenger p;
-	
-	p.input();
-	p.output();
 }
 
 

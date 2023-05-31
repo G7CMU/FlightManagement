@@ -15,14 +15,14 @@ public:
 	string airlinesLabel, flightRoute, startAirport, destinationAirport,
 			flightID, flightNature, chair, destination, from, to, typeOfLuggage;
 	int door;
-	float flightLength, timeDelay, InitialPrice;
+	float flightLength, timeDelay, initialPrice;
 
 	Flight();
 	virtual void input();
 	virtual void output();
 	virtual void saveToFile(ofstream &fo);
 	virtual void readFromFile(ifstream &fi);
-	virtual float tax() = 0;      
+	virtual float tax() = 0;
 	virtual float TotalPrice() = 0;
 	virtual FlightType getType();
 };

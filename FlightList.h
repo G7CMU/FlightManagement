@@ -2,6 +2,7 @@
 #define FLIGHTLIST_H
 
 #include <iostream>
+#include <vector>
 #include "Flight.h"
 #include "EconomyClass.h"
 #include "BusinessClass.h"
@@ -12,24 +13,22 @@ using namespace std;
 class FlightList
 {
 public:
-	int k;
-	Flight *list[100];
-	Flight *b[100];
-	Flight *d;
+	vector<Flight*> list;
+
 	FlightList();
 	void input();
 	void output();
 	void sortBirth();
 	void getFromFile();
 	void exportToFile();
-	void TTotalPrice();
+	void TotalPrice();
 //	float minPrice();
 //	float maxPrice();
 	void sortByPriceAsc();
 	void sortByPriceDesc();
 	void sortByidAsc();
 	void sortByidDesc();
-	void findall();
+	// void findAll();
 	void sortBybirth();
 	void sortDateStart();
 	void findById();
@@ -38,7 +37,7 @@ public:
 	void findPassengerByDoor();
 	void findPassengerByDestination();
 	void sortByTime();
-	void editPassengerById();
+	void editPassengerByPhoneNumber();
 	void editFlight();
 	void editTime();
 	void editDestination();
