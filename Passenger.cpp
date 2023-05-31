@@ -32,6 +32,7 @@ void Passenger::input()
 		cout << "1. Co\n";
 		cout << "Nhap lua chon: ";
 		cin >> choice;
+		cin.ignore();
 	}
 	
 	if (choice == 1)

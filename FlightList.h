@@ -14,19 +14,22 @@ class FlightList
 public:
 	int k;
 	Flight *list[100];
+	Flight *b[100];
+	Flight *d;
 	FlightList();
 	void input();
 	void output();
 	void sortBirth();
 	void getFromFile();
 	void exportToFile();
-	float totalPrice();
-	float minPrice();
-	float maxPrice();
+	void TTotalPrice();
+//	float minPrice();
+//	float maxPrice();
 	void sortByPriceAsc();
 	void sortByPriceDesc();
 	void sortByidAsc();
 	void sortByidDesc();
+	void findall();
 	void sortBybirth();
 	void sortDateStart();
 	void findById();
@@ -47,5 +50,8 @@ public:
 	void appendPassenger();
 	void rotateList();
 	void printinvoice();
+	void sortDateStart1();
+	void minPrice();
+	void maxPrice();
 };
 #endif

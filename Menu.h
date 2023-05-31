@@ -13,7 +13,7 @@ const string START_CHAR = "+";
 void waitForInput();
 void clearConsole();
 void printLine();
-void printSpace(int length);
+void printSpace(int length);		
 void alignCenter(string text, int containerLength);
 void printTableCol(string text, int containerLength);
 void printHeader(string header);
