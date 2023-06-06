@@ -83,11 +83,53 @@ void FirstClass::output()
 }
 float FirstClass::tax()
 {
-	return 0.2;
+	float tax, taxx;
+	if (ageF > 60 && ageF < 20)
+	{
+		tax = 1;	
+	}	
+	else 
+		tax = 1.1;
+	if (aggageWeightF > 20)
+		taxx = 0.3;
+	else 
+		tax = 0;
+	return tax + taxx;
 }
 float FirstClass::TotalPrice()
 {
-	return this->tax() * (initialPrice + servicePrice + priceOfDrink + eatPrice);
+	float sale;
+	if (accumulation > 50)
+	{
+		sale = 0.5 * initialPrice;
+	}
+	else if (accumulation > 30)
+	{
+		sale = 0.3 * initialPrice;
+	}
+	else if (accumulation > 20)
+	{
+		sale = 0.2 * initialPrice;
+	}
+	else if (accumulation > 10)
+	{
+		sale = 0.1 * initialPrice;
+	}
+	else sale = 0;
+	float pricee;
+	if (privateLine = NO_LINE)
+	{
+		pricee = 0;
+	}
+	else if	(privateLine = QUEUE_LINE)
+	{
+		pricee = 100000;
+	}
+	else if (privateLine = NO_QUEUE_LINE)
+	{
+		pricee = 200000;
+	}	
+	return this->tax() * (initialPrice + servicePrice + priceOfDrink + eatPrice + pricee - sale);
 }
 void FirstClass::saveToFile(ofstream &fo)
 {

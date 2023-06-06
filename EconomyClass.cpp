@@ -59,11 +59,11 @@ void EconomyClass::input()
 	//	getline(cin, fastFood);
 	cout << "Fastfood price: ";
 	cin >> fastfoodPrice;
-	cout << "Vocher: " << endl;
+	cout << "Vocher: ";
 	cin >> voucher;
 	cout << "Nhap tuoi cua ban: ";
 	cin >> ageECN;
-	cout << "Aggage Weight ECN: " << endl;
+	cout << "Aggage Weight ECN: ";
 	cin >> aggageWeightECN;
 }
 void EconomyClass::output()
@@ -84,18 +84,80 @@ void EconomyClass::output()
 		case SALAD: cout << "SALAD\n"; break;
 		case YOGURT: cout << "YOGURT\n"; break;
 	}
-	cout << "Price_Fastfood: " << fastFood << endl;
+//	cout << "Price_Fastfood: " << fastFood << endl;
 	cout << "Voucher: " << voucher << endl;
 	cout << "Age ECN: " << ageECN << endl;
 	cout << "Aggage Weight ECN: " << aggageWeightECN << endl;
 }
 float EconomyClass::tax()
 {
-	return 0.1;
+	float taxx, taxx1;
+	if (ageECN > 65 && ageECN < 19)
+	{
+		taxx = 1;
+	}
+	else 
+		taxx = 1.1;
+	if (aggageWeightECN > 10)
+		taxx1 = 0.3;
+	else
+		taxx1 = 0;
+	return taxx+taxx1;
 }
 float EconomyClass::TotalPrice()
 {
-	return this->tax() * (initialPrice + fastfoodPrice);
+	float pricee;
+	if (fastFood = FRIES)
+	{
+		pricee = 15000;
+	}
+	if (fastFood = SANDWICH)
+	{
+		pricee = 200000;
+	}
+	if 	(fastFood = INSTANT_NOODLES)
+	{
+		pricee = 10000;
+	}
+	if  (fastFood = TOKBOKKI)
+	{
+		pricee = 40000;
+	}
+	if	(fastFood = PIZZA)
+	{
+		pricee = 100000;
+	}
+	if	(fastFood = HAMBURGER)
+	{
+		pricee = 50000;
+	}
+	if	(fastFood = KIMBAP)
+	{
+		pricee = 30000;
+	}
+	if (fastFood = SNACK)
+	{
+		pricee = 5000;
+	}
+	if	(fastFood = KFC_FRIED_CHICKEN)
+	{
+		pricee = 70000;
+	}
+	if 	(fastFood = SALAD)
+	{
+		pricee = 55000;
+	}
+	if	(fastFood = YOGURT)
+	{
+		pricee = 20000;
+	}
+	float sale;
+	if (voucher > 20)
+		sale = 0.2 * initialPrice;
+	else if (voucher > 10)
+		sale = 0.2 * initialPrice;
+	else sale = 0;
+	return this->tax() * (initialPrice + fastfoodPrice + pricee - sale);
 }
 void EconomyClass::saveToFile(ofstream &fo)
 {

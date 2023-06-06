@@ -17,6 +17,8 @@ void Passenger::input()
 	getline(cin, _passengerID);
 	cout << "Nhap ten: ";
 	getline(cin, _name);
+	cout << "Gioi tinh (nam / nu): ";
+	cin>> sex;
 	cout << "Nhap ngay, thang, nam sinh: \n";
 	cin >> _dateOfBirth;
 	cout << "Nhap SDT: ";
@@ -52,8 +54,8 @@ void Passenger::output()
 	cout << "ID: " << id << endl;
 	cout << "Passenger ID: " << passengerID << endl;
 	cout << "Ten: " << name << endl;
+	cout << "Gioi tinh: "<< sex <<endl;
 	cout << "SDT: " << phoneNumber << endl;
-
 	cout << "Ngay, thang, nam sinh: " << dateOfBirth << endl;
 }
 
@@ -80,7 +82,7 @@ ostream &operator<<(ostream &os, Passenger p)
 	cout << "Ten: " << p.name << endl;
 	cout << "SDT: " << p.phoneNumber << endl;
 	cout << "Ngay, thang, nam sinh: " << p.dateOfBirth << endl;
-	return os;
+	return os;  
 }
 
 void Passenger::saveToFile(ofstream &fo)
@@ -109,6 +111,7 @@ void Passenger::saveToFile()
 	dateOfBirth.saveToFile(fo);
 	fo << id << "\n"
 		 << name << "\n"
+		 << sex << "\n"
 		 << phoneNumber << "\n"
 		 << passengerID << "\n";
 	fo.close();
@@ -122,6 +125,7 @@ bool Passenger::readFromFile(string _phoneNumber)
 	fi.ignore();
 	getline(fi, id);
 	getline(fi, name);
+	getline(fi, sex);
 	getline(fi, phoneNumber);
 	getline(fi, passengerID);
 

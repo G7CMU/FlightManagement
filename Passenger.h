@@ -12,7 +12,7 @@ using namespace std;
 class Passenger
 {
 public:
-	string id, name, phoneNumber, passengerID;
+	string id, name, phoneNumber, passengerID, sex;
 	Date dateOfBirth;
 	Passenger();
 	void input();

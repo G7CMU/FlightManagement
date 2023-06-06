@@ -33,8 +33,8 @@ void FlightList::output()
 	{
 		cout << "---------------------------------" << endl;
 		list[i]->output();
-		// cout << "Tax: " << list[i]->tax() << endl;
-		// cout << "Price: " << list[i]->TotalPrice() << endl;
+		cout << "Tax: " << list[i]->tax() << endl;
+		cout << "Price: " << (size_t)list[i]->TotalPrice() << endl;
 		cout << "---------------------------------" << endl;
 		;
 	}
@@ -59,7 +59,7 @@ void FlightList::sortDateStart()
 		{
 			if (list[i]->startDate.year > list[j]->startDate.year)
 			{
-				swap(list[i], list[j]);
+				swap(list[i], list[j]); 
 			}
 		}
 	}
@@ -105,36 +105,102 @@ void FlightList::sortDateStart1()
 				swap(list[i], list[j]);
 			}
 	}
+	cout<<"===========SAP XEP NGAY XUAT TANG DAN============="<<endl;
 	for (int i = 0; i < k; i++)
 	{
-		list[i]->output();
+	cout<<"----------------------------"<<endl;
+	list[i]->output();
+	cout<<"----------------------------"<<endl;		
 	}
 }
-
-void FlightList::sortBybirth()
+void FlightList::sortDateStart2()
 {
 	int a[100];
 	int b;
 	int k = list.size();
 	for (int i = 0; i < k; i++)
 	{
-		int b = list[i]->passenger.dateOfBirth.year * 100 + list[i]->passenger.dateOfBirth.month * 100 + list[i]->startDate.day;
+		int b = (list[i]->startDate.year * 100 + list[i]->startDate.month) * 100 + list[i]->startDate.day;
 		a[i] = b;
 	}
 	for (int i = 0; i < k - 1; i++)
 	{
 		for (int j = i + 1; j < k; j++)
-			if (a[i] > a[j])
+			if (a[i] < a[j])
 			{
 				swap(list[i], list[j]);
 			}
 	}
+	cout<<"===========SAP XEP NGAY XUAT GIAM DAN============="<<endl;
 	for (int i = 0; i < k; i++)
 	{
-		list[i]->output();
+	cout<<"----------------------------"<<endl;
+	list[i]->output();
+	cout<<"----------------------------"<<endl;		
 	}
 }
 
+void FlightList::sortByBirth1()
+{
+	int a[100];
+	int b;
+	Flight *c[100];
+	int k = list.size();
+
+	for (int i = 0; i < k; i++)
+	{
+		int b = (list[i]->passenger.dateOfBirth.year * 100 + list[i]->passenger.dateOfBirth.month )* 100 + list[i]->passenger.dateOfBirth.day;
+		a[i] = b;
+	}
+
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+			if (a[i] < a[j])
+			{
+				swap(a[i], a[j]);
+				swap(list[i], list[j]);
+			}
+	}
+	cout<<"=========SAP XEP GIAM DAN THEO NGAY SINH========="<<endl;
+	for (int i = 0; i < k; i++)
+	{
+	cout<<"------------------DATA---------------------"<<endl;
+		list[i]->output();
+	cout<<"-------------------------------------------"<<endl;
+	}
+}
+void FlightList::sortBybirth()
+{
+	int a[100];
+	int b;
+	Flight *c[100];
+	int k = list.size();
+
+	for (int i = 0; i < k; i++)
+	{
+		int b = (list[i]->passenger.dateOfBirth.year * 100 + list[i]->passenger.dateOfBirth.month )* 100 + list[i]->passenger.dateOfBirth.day;
+		a[i] = b;
+	}
+
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+			if (a[i] > a[j])
+			{
+				swap(a[i], a[j]);
+				swap(list[i], list[j]);
+			}
+	}
+	cout<<"=========SAPXEPTANGDANTHEONGAYSINH========="<<endl;
+	for (int i = 0; i < k; i++)
+	{
+	cout<<"------------------DATA---------------------"<<endl;
+		list[i]->output();
+	cout<<"-------------------------------------------"<<endl;
+	}
+
+}
 void FlightList::sortByPriceAsc()
 {
 	int k = list.size();
@@ -146,8 +212,90 @@ void FlightList::sortByPriceAsc()
 				swap(list[i], list[j]);
 		}
 	}
+	cout << "=========SAPXEPTANGDANTHEOGIA===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"------------DATA-------------"<<endl;
+		list[i]->output();
+		cout<<"-----------------------------"<<endl;
+	}
 }
-
+void FlightList::sortByLengthAsc()
+{
+	int k = list.size();
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+		{
+			if (list[i]->flightLength > list[j]->flightLength)
+				swap(list[i], list[j]);
+		}
+	}
+	cout << "=========SAP XEP TANG DAN THEO THOI GIAN BAY===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"------------DATA-------------"<<endl;
+		list[i]->output();
+		cout<<"-----------------------------"<<endl;
+	}
+}
+void FlightList::sortByLengthDesc()
+{
+	int k = list.size();
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+		{
+			if (list[i]->flightLength < list[j]->flightLength)
+				swap(list[i], list[j]);
+		}
+	}
+	cout << "=========SAP XEP GIAM DAN THEO THOI GIAN BAY===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"------------DATA-------------"<<endl;
+		list[i]->output();
+		cout<<"-----------------------------"<<endl;
+	}
+}
+void FlightList::sortByTaxAsc()
+{
+	int k = list.size();
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+		{
+			if (list[i]->tax() > list[j]->tax())
+				swap(list[i], list[j]);
+		}
+	}
+	cout << "=========SAP XEP TANG DAN THEO GIA THUE===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"------------DATA-------------"<<endl;
+		list[i]->output();
+		cout<<"-----------------------------"<<endl;
+	}
+}
+void FlightList::sortByTaxDesc()
+{
+	int k = list.size();
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+		{
+			if (list[i]->tax() < list[j]->tax())
+				swap(list[i], list[j]);
+		}
+	}
+	cout << "=========SAP XEP GIAM DAN THEO GIA THUE===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"------------DATA-------------"<<endl;
+		list[i]->output();
+		cout<<"-----------------------------"<<endl;
+	}
+}
 void FlightList::sortByPriceDesc()
 {
 	int k = list.size();
@@ -162,7 +310,9 @@ void FlightList::sortByPriceDesc()
 	cout << "=========SAPXEPGIAMDANTHEOGIA===========" << endl;
 	for (int i = 0; i < k; i++)
 	{
+		cout<<"--------------DATA------------"<<endl;
 		list[i]->output();
+		cout<<"------------------------------"<<endl;
 	}
 }
 
@@ -177,6 +327,13 @@ void FlightList::sortByidDesc()
 				swap(list[i], list[j]);
 		}
 	}
+	cout << "=========SAPXEPGIAMDANTHEO_ID===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"=============DATA============"<<endl;
+		list[i]->output();
+		cout<<"============================="<<endl;
+	}
 }
 
 void FlightList::sortByidAsc()
@@ -186,129 +343,152 @@ void FlightList::sortByidAsc()
 	{
 		for (int j = i + 1; j < k; i++)
 		{
-			if (list[i]->passenger.id < list[j]->passenger.id)
+			if (list[i]->passenger.id > list[j]->passenger.id)
 				swap(list[i], list[j]);
 		}
 	}
+	cout << "=========SAPXEPTANGDANTHEO_ID===========" << endl;
+	for (int i = 0; i < k; i++)
+	{
+		cout<<"------------DATA--------------"<<endl;
+		list[i]->output();
+		cout<<"-------------------------------"<<endl;
+	}
 }
 
-// void FlightList::findAll()
-// {
-// 	int choice;
-// 	int nb = 0;
-// 	int id;
-// 	int k = list.size();
-// 	for (int i = 0; i < k; i++)
-// 	{
-// 		b[nb] = list[i];
-// 		nb++;
-// 	}
-// 	nb = nb;
-// 	while (true)
-// 	{
-// 		cout << "1.ID" << endl;
-// 		cout << "2.SDT" << endl;
-// 		cout << "3.Ma chuyen bay" << endl;
-// 		cout << "4.Cong vao" << endl;
-// 		cout << "5.Exit" << endl;
-// 		cout << "Hay nhap lua chon cua ban: ";
-// 		cin >> choice;
-// 		if (choice == 1)
-// 		{
-// 			string a;
-// 			cout << "Hay nhap id ban muon nhap: ";
-// 			cin >> a;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				if (b[i]->passenger.id != a)
-// 				{
-// 					for (int j = i; j < nb; j++)
-// 					{
-// 						b[j] = b[j + 1];
-// 					}
-// 					nb--;
-// 					i--;
-// 				}
-// 			}
-// 			cout << "Sau khi loc la: " << endl;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				b[i]->output();
-// 			}
-// 		}
-// 		else if (choice == 2)
-// 		{
-// 			string a;
-// 			cout << "Hay nhap sdt ban muon nhap: ";
-// 			cin >> a;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				if (b[i]->passenger.phoneNumber != a)
-// 				{
-// 					for (int j = i; j < nb; j++)
-// 					{
-// 						b[j] = b[j + 1];
-// 					}
-// 					nb--;
-// 					i--;
-// 				}
-// 			}
-// 			cout << "Sau khi loc la: " << endl;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				b[i]->output();
-// 			}
-// 		}
-// 		else if (choice == 3)
-// 		{
-// 			string a;
-// 			cout << "Hay nhap ma chuyen bay ban muon nhap: ";
-// 			cin >> a;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				if (b[i]->flightID != a)
-// 				{
-// 					for (int j = i; j < nb; j++)
-// 					{
-// 						b[j] = b[j + 1];
-// 					}
-// 					nb--;
-// 					i--;
-// 				}
-// 			}
-// 			cout << "Sau khi loc theo ma chuyen bay la : " << endl;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				b[i]->output();
-// 			}
-// 		}
-// 		else if (choice == 4)
-// 		{
-// 			int a;
-// 			cout << "Hay nhap cong vao ban muon nhap: ";
-// 			cin >> a;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				if (b[i]->door != a)
-// 				{
-// 					for (int j = i; j < nb; j++)
-// 					{
-// 						b[j] = b[j + 1];
-// 					}
-// 					nb--;
-// 				}
-// 				nb--;
-// 			}
-// 			cout << "Sau khi loc cong vao cua chuyen bay la : " << endl;
-// 			for (int i = 0; i < nb; i++)
-// 			{
-// 				b[i]->output();
-// 			}
-// 		}
-// 		else
-// 			break;
-// 	}
-// }
+ void FlightList::findAll()
+ {
+ 	int choice;
+ 	int nb = 0;
+ 	int id;
+ 	Flight *b[10];
+ 	int k = list.size();
+ 	for (int i = 0; i < k; i++)
+ 	{
+ 		b[nb] = list[i];
+ 		nb++;
+ 	}
+ 	while (true)
+ 	{
+ 		cout << "1.ID" << endl;
+ 		cout << "2.Gioi tinh" << endl;
+ 		cout << "3.Ma chuyen bay" << endl;
+ 		cout << "4.Cong vao" << endl;
+ 		cout << "5.Exit" << endl;
+ 		cout << "Hay nhap lua chon cua ban: ";
+ 		cin >> choice;
+ 		if (choice == 1)
+ 		{
+ 			string a;
+ 			cout << "Hay nhap id ban muon nhap: ";
+ 			cin >> a;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				if (b[i]->passenger.id != a)
+ 				{
+ 					for (int j = i; j < nb; j++)
+ 					{
+ 						b[j] = b[j + 1];
+ 					}
+ 					nb--;
+ 					i--;
+ 				}
+ 			}
+ //			cout << "Sau khi loc la: " << endl;
+ 			cout<<"===========LOC_ID==========="<<endl;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				cout<<"--------------------------"<<endl;
+ 				b[i]->output();
+ 				cout<<"--------------------------"<<endl;
+ 			}
+ 			cout<<"============================"<<endl;
+ 		}
+ 		else if (choice == 2)
+ 		{
+ 			string a;
+ 			cout << "Hay nhap gioi tinh ban muon nhap (nam/nu): ";
+ 			cin >> a;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				if (b[i]->passenger.sex != a)
+ 				{
+ 					for (int j = i; j < nb; j++)
+ 					{
+ 						b[j] = b[j + 1];
+ 					}
+ 					nb--;
+ 					i--;
+ 				}
+ 			}
+ //			cout << "Sau khi loc la: " << endl;
+ 			cout<<"=========LOC_GIOITINH============"<<endl;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				cout<<"---------------------------------"<<endl;
+ 				b[i]->output();
+ 				cout<<"---------------------------------"<<endl;
+ 			}
+ 			cout<<"============================"<<endl;
+ 		}
+ 		else if (choice == 3)
+ 		{
+ 			string a;
+ 			cout << "Hay nhap ma chuyen bay ban muon nhap: ";
+ 			cin >> a;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				if (b[i]->flightID != a)
+ 				{
+ 					for (int j = i; j < nb; j++)
+ 					{
+ 						b[j] = b[j + 1];
+ 					}
+ 					nb--;
+ 					i--;
+ 				}
+ 			}
+ //			cout << "Sau khi loc theo ma chuyen bay la : " << endl;
+ 			cout<<"=============LOC_MACHUYENBAY=========="<<endl;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				cout<<"--------------------------------------"<<endl;
+ 				b[i]->output();
+ 				cout<<"--------------------------------------"<<endl;
+ 			}
+ 			cout<<"======================================="<<endl;
+ 		}
+ 		else if (choice == 4)
+ 		{
+ 			int a;
+ 			cout << "Hay nhap cong vao ban muon nhap: ";
+ 			cin >> a;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				if (b[i]->door != a)
+ 				{
+ 					for (int j = i; j < nb; j++)
+ 					{
+ 						b[j] = b[j + 1];
+ 					}
+ 					nb--;
+ 				}
+ 				nb--;
+ 			}
+ //			cout << "Sau khi loc cong vao cua chuyen bay la : " << endl;
+ 			cout<<"=============LOC_CONG==========="<<endl;
+ 			for (int i = 0; i < nb; i++)
+ 			{
+ 				cout<<"----------------------------------"<<endl;
+ 				b[i]->output();
+ 				cout<<"----------------------------------"<<endl;
+ 			}
+ 			cout<<"================================="<<endl;
+ 		}
+ 		else
+ 			break;
+ 	}
+ }
 
 void FlightList::maxPrice()
 {
@@ -316,7 +496,7 @@ void FlightList::maxPrice()
 	for (int i = 1; i < list.size(); i++)
 		if (list[i]->TotalPrice() > list[maxIndex]->TotalPrice())
 			maxIndex = i;
-	cout << "Nguoi phai tra tien cao nhat la: " << endl;
+	cout << "=======Nguoi phai tra tien cao nhat la========" << endl;
 	list[maxIndex]->output();
 }
 void FlightList::minPrice()
@@ -325,7 +505,7 @@ void FlightList::minPrice()
 	for (int i = 0; i < list.size(); i++)
 		if (list[i]->TotalPrice() < list[minIndex]->TotalPrice())
 			minIndex = i;
-	cout << "Nguoi phai tra tien cao nhat la: " << endl;
+	cout << "=======Nguoi phai tra tien thap nhat la========" << endl;
 	list[minIndex]->output();
 }
 void FlightList::editPassengerByPhoneNumber()
@@ -333,7 +513,7 @@ void FlightList::editPassengerByPhoneNumber()
 	string _phoneNumber;
 	Passenger toEdit;
 
-	cout << "Nhap SDT khach hang muon sua thoing tin: ";
+	cout << "Nhap SDT khach hang muon sua thong tin: ";
 	cin.ignore();
 	getline(cin, _phoneNumber);
 
@@ -389,12 +569,15 @@ void FlightList::editFlight()
 			list[i]->flightID = b;
 		}
 	}
-	cout << "Thong tin sau khi doi id chuyen bay la: " << endl;
+	cout << "======Thong tin sau khi doi id chuyen bay la========" << endl;
 	for (int i = 0; i < k; i++)
 	{
+		cout<<"---------------------------------------------------"<<endl;
 		if (list[i]->flightID == b)
 			list[i]->output();
+		cout<<"---------------------------------------------------"<<endl;
 	}
+	cout << "====================================================="<<endl;
 }
 
 void FlightList::editTime()
@@ -414,12 +597,15 @@ void FlightList::editTime()
 			list[i]->flightLength = b;
 		}
 	}
-	cout << "Thong tin sau khi doi id chuyen bay la: " << endl;
+	cout << "======Thong tin sau khi doi id chuyen bay la==========" << endl;
 	for (int i = 0; i < k; i++)
 	{
+		cout<<"-----------------------------------------------------"<<endl;
 		if (list[i]->flightID == a && list[i]->flightLength == b)
 			list[i]->output();
+		cout<<"------------------------------------------------------"<<endl;
 	}
+	cout << "=======================================================" <<endl;
 }
 
 void FlightList::editDestination()
@@ -440,12 +626,15 @@ void FlightList::editDestination()
 			list[i]->destinationAirport = b;
 		}
 	}
-	cout << "Thong tin sau khi doi diem den chuyen bay la: " << endl;
+	cout << "=====Thong tin sau khi doi diem den chuyen bay la=======" << endl;
 	for (int i = 0; i < k; i++)
 	{
+		cout<<"--------------------------------------------------------"<<endl;
 		if (list[i]->flightID == a && list[i]->destinationAirport == b)
 			list[i]->output();
+		cout<<"--------------------------------------------------------"<<endl;
 	}
+	cout << "==========================================================" <<endl;
 }
 
 void FlightList::removeById()
@@ -475,11 +664,14 @@ void FlightList::removeById()
 			nc--;
 		}
 	}
-	cout << "Sau khi xoa id ban muon la: " << endl;
+	cout << "========Sau khi xoa id ban muon la=============" << endl;
 	for (int i = 0; i < nc; i++)
 	{
+		cout<<"---------------------------------------"<<endl;
 		c[i]->output();
+		cout<<"---------------------------------------"<<endl;
 	}
+	cout << "================================================" <<endl;
 }
 
 void FlightList::removeByName()
@@ -487,7 +679,7 @@ void FlightList::removeByName()
 	Flight *c[100];
 	string a;
 	int k = list.size();
-	cout << "Ban hay nhap id can xoa: ";
+	cout << "Ban hay nhap ten can xoa: ";
 	getline(cin, a);
 	int choice;
 	int nc = 0;
@@ -509,11 +701,14 @@ void FlightList::removeByName()
 			nc--;
 		}
 	}
-	cout << "Sau khi xoa id ban muon la: " << endl;
+	cout << "=======Sau khi xoa id ban muon la============" << endl;
 	for (int i = 0; i < nc; i++)
 	{
+		cout<<"-------------------------------------------"<<endl;
 		c[i]->output();
+		cout<<"-------------------------------------------"<<endl;
 	}
+	cout << "============================================="<< endl;
 }
 
 void FlightList::removeByDoor()
@@ -543,11 +738,14 @@ void FlightList::removeByDoor()
 			nc--;
 		}
 	}
-	cout << "Sau khi xoa cong ban muon la: " << endl;
+	cout << "========Sau khi xoa cong ban muon la============" << endl;
 	for (int i = 0; i < nc; i++)
 	{
+		cout<<"----------------------------------------------"<<endl;
 		c[i]->output();
+		cout<<"----------------------------------------------"<<endl;
 	}
+	cout << "=================================================" <<endl;
 }
 
 void FlightList::removeByDestination()
@@ -576,11 +774,14 @@ void FlightList::removeByDestination()
 			nc--;
 		}
 	}
-	cout << "Sau khi xoa noi muon den la: " << endl;
+	cout << "========Sau khi xoa noi muon den la=========" << endl;
 	for (int i = 0; i < nc; i++)
 	{
+		cout<<"-------------------------------------------" << endl;
 		c[i]->output();
+		cout<<"-------------------------------------------" << endl;
 	}
+	cout << "=============================================" << endl;
 }
 
 void FlightList::appendPassenger()
@@ -619,6 +820,23 @@ void FlightList::appendPassenger()
 	cout << "============Danh sach sau khi them la: =============" << endl;
 	for (int i = 0; i < nc; i++)
 	{
+		cout<<"-----------------------------------------------------"<<endl;
 		c[i]->output();
+		cout<<"-----------------------------------------------------"<<endl;
+	}
+	cout <<	"=======================================================" <<endl;
+}
+void FlightList::printinvoice()
+{
+	int k = list.size();
+	for(int i=0; i<k; i++)
+	{
+		cout<<"--------------------------------HOA_DON---------------------------"<<endl;
+		cout<<"|Ngay "<<list[i]->startDate.day<<" Thang "<< list[i]->startDate.month<<" Nam "<<list[i]->startDate.day<<"  "<<endl;
+		cout<<"|NAME: "<<list[i]->passenger.name<<"     |Hang may bay: "<<list[i]->airlinesLabel<<"                                        "<<endl;
+		cout<<"|ID: "<<list[i]->flightID<<"  |Thoi gian bay: "<<list[i]->flightLength<<"                                  "<<endl;
+		cout<<"|From: "<<list[i]->from<<" |To: "<<list[i]->to<<" "<<endl;
+		cout<<"|Door: "<<list[i]->door<<"   |So ghe: "<<list[i]->chair;
+		cout<<"|Price: "<<list[i]->TotalPrice()<<endl;
 	}
 }

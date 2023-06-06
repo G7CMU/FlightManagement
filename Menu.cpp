@@ -131,8 +131,6 @@ void readFileMenu(FlightList *list)
 	clearConsole();
 	printHeader("DOC FILE");
 
-
-
 	waitForInput();
 }
 void writeFileMenu(FlightList *list)
@@ -168,6 +166,7 @@ void minMaxMenu(FlightList *list)
 	printHeader("TIM MIN / MAX");
 	cout<<"1.Tim min gia ve phai tra. "<<endl;
 	cout<<"2.tim max gia ve phai tra. "<<endl;
+	cout<<"3.Exit. "<<endl;
 	cout<<"Hay nhap su lua chon cua ban: ";
 	cin>>choice;
 	if (choice == 1) 
@@ -181,34 +180,52 @@ void sortMenu(FlightList *list)
 	clearConsole();
 	printHeader("SAP XEP");
 
-	cout << "1.Sap xep theo ngay xuat phat: " << endl;
-	cout << "2.Sap xep theo ngay sinh: " << endl;
-	cout << "3.Sap xep tong gia tang dan: " << endl;
-	cout << "4.Sap xep tong gia giam dan: "<<endl;
-	cout << "5.Sap xep ID hanh khach tang dan: "<<endl;
-	cout << "6.Sap xep ID hanh khach giam dan:  "<<endl;	
+	cout << "1.Sap xep tang dan theo ngay xuat phat: " << endl;
+	cout << "2.Sap xep giam dan theo ngay xuat phat: " <<endl;
+	cout << "3.Sap xep tang dan theo ngay sinh: " << endl;
+	cout << "4.Sap xep giam dan theo ngay sinh: " << endl;
+	cout << "5.Sap xep tong gia tang dan: " << endl;
+	cout << "6.Sap xep tong gia giam dan: "<<endl;
+	cout << "7.Sap xep ID hanh khach tang dan: "<<endl;
+	cout << "8.Sap xep ID hanh khach giam dan:  "<<endl;
+	cout << "9.Sap xep tang dan theo thoi gian bay: "<<endl;
+	cout << "10.Sap xep giam dan theo thoi gian bay: "<<endl;
+	cout << "11.Sap xep giam dan theo gia thue: "<<endl;
+	cout << "12.Sap xep tang dan theo gia thueL "<<endl;	
 	int choice;
 	cout << "Hay nhap lua chon cua ban: ";
 	cin >> choice;
 	if (choice == 1)
 		list->sortDateStart1();
 	if (choice == 2)
-		list->sortBybirth();
+		list->sortDateStart2();
 	if (choice == 3)
-		list->sortByPriceAsc();
+		list->sortBybirth();
 	if (choice == 4)
-		list->sortByPriceDesc();
+		list->sortByBirth1();
 	if (choice == 5)
-		list->sortByidAsc();
+		list->sortByPriceAsc();
 	if (choice == 6)
+		list->sortByPriceDesc();
+	if (choice == 7)
+		list->sortByidAsc();
+	if (choice == 8)
 		list->sortByidDesc();
+	if (choice == 9)
+		list->sortByLengthAsc();
+	if (choice == 10)
+		list->sortByLengthDesc();
+	if (choice == 11)
+		list->sortByTaxAsc();
+	if (choice == 12)
+		list->sortByTaxDesc();
 	waitForInput();
 }
 void filterMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("LOC");
-	// list->findAll();
+	list->findAll();
 	waitForInput();
 }
 void editMenu(FlightList *list)
@@ -241,15 +258,20 @@ void removeMenu(FlightList *list)
 	printHeader("XOA KHOI DANH SACH");
 	while (true)
 	{
+		cout<<"========================"<<endl;
 		cout<<"1.Xoa danh sach theo ID."<<endl;
 		cout<<"2.Xoa danh sach theo ten."<<endl;
 		cout<<"3.Xoa danh sach theo cong vao."<<endl;
 		cout<<"4.Xoa danh sach theo noi den."<<endl;
+		cout<<"5.Exit."<<endl;
 		cout<<"============================="<<endl;
+		cout<<"Hay nhap lua chon cua ban: ";
+		cin>>choice;
 		if (choice==1) list->removeById();
 		if (choice==2) list->removeByName();
 		if (choice==3) list->removeByDoor();
 		if (choice==4) list->removeByDestination();
+		if (choice==5) break;
 		cout<<"Hay nhap lai!!"<<endl;
 	}
 	waitForInput();
@@ -265,7 +287,7 @@ void invoiceMenu(FlightList *list)
 {
 	clearConsole();
 	printHeader("IN HOA DON");
-//	list->printinvoice();
+	list->printinvoice();
 	waitForInput();
 }
 void groupInfo()
@@ -290,7 +312,16 @@ void groupInfo()
 			 << "|" << left << setw(18) << "0943923714"
 			 << "|" << left << setw(23) << "nbk2124.z@gmail.com"
 			 << "|" << endl;
-	
+	cout << "\t|" << left << setw(19) << "28219001381"
+			 << "|" << left << setw(29) << "Tran Dinh Quan"
+			 << "|" << left << setw(18) << "0943923714"
+			 << "|" << left << setw(23) << ""
+			 << "|" << endl;
+	cout << "\t|" << left << setw(19) << "28211103250"
+			 << "|" << left << setw(29) << "Ho Tan Phong"
+			 << "|" << left << setw(18) << "0943923714"
+			 << "|" << left << setw(23) << "phongho763@gmail.com"
+			 << "|" << endl;
 	waitForInput();
 }
 void continueMenu()

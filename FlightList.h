@@ -22,13 +22,11 @@ public:
 	void getFromFile();
 	void exportToFile();
 	void TotalPrice();
-//	float minPrice();
-//	float maxPrice();
 	void sortByPriceAsc();
 	void sortByPriceDesc();
 	void sortByidAsc();
 	void sortByidDesc();
-	// void findAll();
+	void findAll();
 	void sortBybirth();
 	void sortDateStart();
 	void findById();
@@ -52,5 +50,11 @@ public:
 	void sortDateStart1();
 	void minPrice();
 	void maxPrice();
+	void sortDateStart2();
+	void sortByLengthAsc();
+	void sortByLengthDesc();
+	void sortByTaxAsc();
+	void sortByTaxDesc();
+	void sortByBirth1();
 };
 #endif

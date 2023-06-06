@@ -20,7 +20,7 @@ void Flight::input()
 		do
 		{
 			cout << "Vui long nhap SDT: ";
-			cin.ignore();
+			cin.ignore(); 	
 			getline(cin, _phoneNumber);
 			cout << "Dang lay du lieu khach hang. Xin vui long cho!\n";
 			if (!passenger.readFromFile(_phoneNumber))
@@ -93,7 +93,9 @@ void Flight::input()
 void Flight::output()
 {
 	passenger.output();
-	cout << "\n\nThong tin chuyen bay:\n\n";
+	cout << "========================"<<endl;
+	cout << "||Thong tin chuyen bay||";
+	cout << "========================"<<endl;
 	cout << "AirlinesLabel: " << airlinesLabel << endl;
 	cout << "FlightRoute: " << flightRoute << endl;
 	cout << "StartAirport: " << startAirport << endl;

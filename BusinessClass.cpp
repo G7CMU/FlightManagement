@@ -169,11 +169,38 @@ void BusinessClass::output()
 }
 float BusinessClass::tax()
 {
-    return 0.15;
+	float taxx, tax1, tax2;
+	if (waitRoom == ROOM_OF_ONE)
+		taxx = 0.95;
+	else if (waitRoom == ROOM_OF_TWO)
+		taxx = 0.9;
+	else if (waitRoom == ROOM_OF_THREE)
+		taxx = 0.85;
+	else if (waitRoom == ROOM_OF_FOUR)
+		taxx = 0.80;
+	else if (waitRoom == ROOM_OF_FIVE)
+		taxx = 1;
+	if (ageBSN > 60 && ageBSN<18)
+		tax1 = 0;
+	else 
+		tax1 = 0.9;
+	if (aggageWeightBSN > 10)
+		tax2 = 0.5;
+    return taxx + tax1 + tax2;
 }
 float BusinessClass::TotalPrice()
 {
-    return this->tax() * (initialPrice + mealPrice + softDrinksPrice);
+	float pricee, priceee;
+	if (card == NONE)
+		pricee = initialPrice * 1;
+	else if (card == GOLD)
+		pricee = initialPrice * 0.9;
+	else if (card = DIAMOND)
+		pricee = initialPrice * 0.85;
+	else if (card = PLATINUM)
+		pricee = initialPrice * 0.88;
+	priceee = pricee + mealPrice + softDrinksPrice;
+    return this->tax() * (priceee);
 }
 void BusinessClass::saveToFile(ofstream &fo)
 {
