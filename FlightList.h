@@ -7,6 +7,7 @@
 #include "EconomyClass.h"
 #include "BusinessClass.h"
 #include "FirstClass.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -29,6 +30,8 @@ public:
 	void findAll();
 	void sortBybirth();
 	void sortDateStart();
+	void sortByDateOfBirth();
+	void sortByStartDate();
 	void findById();
 	void findByName();
 	void findPassengerByFlight();
@@ -39,12 +42,11 @@ public:
 	void editFlight();
 	void editTime();
 	void editDestination();
-	void removeById();
-	void removeByName();
-	void removeByDoor();
-	void removeByChair();
-	void removeByDestination();
-	void appendPassenger();
+	void removeFlightById();
+	void removeFlightByDoor();
+	void removeFlightByChair();
+	void removeFlightByDestination();
+	void appendFlight();
 	void rotateList();
 	void printinvoice();
 	void sortDateStart1();

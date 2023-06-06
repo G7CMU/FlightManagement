@@ -70,26 +70,26 @@ void Date::readFromFile(ifstream &fi)
 {
 	fi >> day >> month >> year;
 }
-// string Date::toString()
-//{
-//	char toReturn[30];
-//	char _month[2];
-//	char _day[2];
-//	sprintf(_month, "%s%d", (this->month < 10 ? "0" : ""), this->month);
-//	sprintf(_day, "%s%d", (this->day < 10 ? "0" : ""), this->day);
-//	sprintf(toReturn, "%d%s%s", year, _month, _day);
-//	return toReturn;
-// }
-//
-// bool operator==(Date d1, Date d2)
-//{
-//	return d1.toString() == d2.toString();
-// }
-// bool operator<(Date d1, Date d2)
-//{
-//	return d1.toString() < d2.toString();
-// }
-// bool operator>(Date d1, Date d2)
-//{
-//	return d1.toString() > d2.toString();
-// }
+string Date::toString()
+{
+	char toReturn[30];
+	char _month[2];
+	char _day[2];
+	sprintf(_month, "%s%d", (this->month < 10 ? "0" : ""), this->month);
+	sprintf(_day, "%s%d", (this->day < 10 ? "0" : ""), this->day);
+	sprintf(toReturn, "%d%s%s", year, _month, _day);
+	return toReturn;
+}
+
+bool operator==(Date d1, Date d2)
+{
+	return d1.toString() == d2.toString();
+}
+bool operator<(Date d1, Date d2)
+{
+	return d1.toString() < d2.toString();
+}
+bool operator>(Date d1, Date d2)
+{
+	return d1.toString() > d2.toString();
+}
