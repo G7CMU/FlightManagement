@@ -93,6 +93,7 @@ void Passenger::saveToFile(ofstream &fo)
 	dateOfBirth.saveToFile(fo);
 	fo << id << "\n"
 		 << name << "\n"
+		 << sex << "\n"
 		 << phoneNumber << "\n"
 		 << passengerID << "\n";
 }
@@ -103,6 +104,7 @@ void Passenger::readFromFile(ifstream &fi)
 	fi.ignore();
 	getline(fi, id);
 	getline(fi, name);
+	getline(fi, sex);
 	getline(fi, phoneNumber);
 	getline(fi, passengerID);
 }

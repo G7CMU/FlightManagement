@@ -47,7 +47,7 @@ void FirstClass::input()
 	getline(cin, service);
 	cout << "ServicePrice: ";
 	cin >> servicePrice;
-	cout << "Accumulation: ";
+	cout << "Accumulation(0-10/11-20/21-30/31-50/>50): ";
 	cin >> accumulation;
 	cout << "Age F: ";
 	cin >> ageF;
@@ -83,18 +83,18 @@ void FirstClass::output()
 }
 float FirstClass::tax()
 {
-	float tax, taxx;
+	float tax1, taxx;
 	if (ageF > 60 && ageF < 20)
 	{
-		tax = 1;	
+		tax1 = 1;	
 	}	
 	else 
-		tax = 1.1;
+		tax1 = 1.1;
 	if (aggageWeightF > 20)
 		taxx = 0.3;
 	else 
-		tax = 0;
-	return tax + taxx;
+		taxx = 0;
+	return tax1 + taxx;
 }
 float FirstClass::TotalPrice()
 {

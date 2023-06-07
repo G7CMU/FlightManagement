@@ -61,7 +61,7 @@ void Flight::input()
 	cout << "destinationAirport: ";
 	cin.ignore();
 	getline(cin, destinationAirport);
-	cout << "flightLength: ";
+	cout << "flightLength(h): ";
 	cin >> flightLength;
 	cout << "flightID: ";
 	cin.ignore();

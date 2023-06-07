@@ -34,8 +34,8 @@ void FlightList::output()
 		cout << "---------------------------------" << endl;
 		list[i]->output();
 		cout << "---------------------------------" << endl;
-		cout << "\tTax: " << list[i]->tax() << endl;
-		cout << "\tPrice: " << (size_t)list[i]->TotalPrice() << endl;
+		cout << "Tax: " << (size_t)list[i]->tax() << endl;
+		cout << "Price: " << (size_t)list[i]->TotalPrice() << endl;
 		cout << "---------------------------------" << endl;
 		;
 	}
@@ -48,7 +48,7 @@ void FlightList::TotalPrice()
 	{
 		sum = sum + list[i]->TotalPrice();
 	}
-	cout << "Tong la: " << sum << endl;
+	cout << "Tong la: " << (size_t)sum << endl;
 }
 
 void FlightList::sortDateStart()
@@ -106,6 +106,14 @@ void FlightList::sortDateStart1()
 				swap(list[i], list[j]);
 			}
 	}
+	for (int i = 0; i < k - 1; i++)
+	{
+		for (int j = i + 1; j < k; j++)
+			if (a[i] > a[j])
+			{
+				swap(list[i], list[j]);
+			}
+	}
 }
 void FlightList::sortDateStart2()
 {
@@ -143,11 +151,13 @@ void FlightList::sortByBirth1()
 	for (int i = 0; i < k - 1; i++)
 	{
 		for (int j = i + 1; j < k; j++)
+		{
 			if (a[i] < a[j])
 			{
 				swap(a[i], a[j]);
 				swap(list[i], list[j]);
 			}
+		}
 	}
 }
 void FlightList::sortBybirth()
@@ -166,11 +176,13 @@ void FlightList::sortBybirth()
 	for (int i = 0; i < k - 1; i++)
 	{
 		for (int j = i + 1; j < k; j++)
+		{
 			if (a[i] > a[j])
 			{
 				swap(a[i], a[j]);
 				swap(list[i], list[j]);
 			}
+		}
 	}
 }
 void FlightList::sortByDateOfBirth()
@@ -249,7 +261,7 @@ void FlightList::sortByidDesc()
 	int k = list.size();
 
 	for (int i = 0; i < k - 1; i++)
-		for (int j = i + 1; j < k; i++)
+		for (int j = i + 1; j < k; j++)
 			if (list[i]->passenger.id < list[j]->passenger.id)
 				swap(list[i], list[j]);
 }
@@ -257,9 +269,8 @@ void FlightList::sortByidDesc()
 void FlightList::sortByidAsc()
 {
 	int k = list.size();
-
 	for (int i = 0; i < k - 1; i++)
-		for (int j = i + 1; j < k; i++)
+		for (int j = i + 1; j < k; j++)
 			if (list[i]->passenger.id > list[j]->passenger.id)
 				swap(list[i], list[j]);
 }
@@ -420,9 +431,9 @@ void FlightList::editPassengerByPhoneNumber()
 {
 	string _phoneNumber;
 	Passenger toEdit;
-
+ cin.ignore();
 	cout << "Nhap SDT khach hang muon sua thong tin: ";
-	cin.ignore();
+	
 	getline(cin, _phoneNumber);
 
 	if (toEdit.readFromFile(_phoneNumber))
@@ -432,7 +443,7 @@ void FlightList::editPassengerByPhoneNumber()
 		string _id, _name, __phoneNumber, _passengerID;
 
 		cout << "Nhap cac thong tin khach hang!\n";
-		cout << "Nhap [x] de bo qua!";
+		cout << "Nhap [x] de bo qua!\n";
 
 		cout << "ID: ";
 		getline(cin, _id);
@@ -456,7 +467,7 @@ void FlightList::editPassengerByPhoneNumber()
 	}
 	else
 	{
-		cout << "Khach hang khong ton tai";
+		cout << "Khach hang khong ton tai\n";
 	}
 }
 
@@ -465,7 +476,7 @@ void FlightList::editFlight()
 	string _flightID;
 	string newId;
 	int k = list.size(), change = 0;
-	cout << "Hay nhap chuyen bay ban muon thay doi ten: " << endl;
+	cout << "Hay nhap chuyen bay ban muon thay doi ten: ";
 	cin >> _flightID;
 	cout << "ID chuyen bay thay doi: ";
 	cin >> newId;
@@ -512,7 +523,7 @@ void FlightList::editDestination()
 	string newDestination;
 	int k = list.size(), change = 0;
 
-	cout << "Hay nhap id chuyen bay ban muon thay doi diem den: " << endl;
+	cout << "Hay nhap id chuyen bay ban muon thay doi diem den: ";
 	cin >> _flightID;
 	cin.ignore();
 	cout << "Diem den moi: ";

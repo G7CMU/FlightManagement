@@ -60,20 +60,20 @@ void mainMenu(FlightList *list)
 		{
 			clearConsole();
 			printHeader("QUAN LY CHUYEN BAY");
-			cout << "\t1.  Doc du lieu tu File\n";
-			cout << "\t2.  Ghi File\n";
-			cout << "\t3.  Nhap\n";
-			cout << "\t4.  Xuat\n";
-			cout << "\t5.  Tinh tong gia ve trong danh sach\n";
-			cout << "\t6.  Tim Min/Max\n";
-			cout << "\t7.  Sap xep\n";
-			cout << "\t8.  Tim kiem\n";
-			cout << "\t9.  Chinh sua\n";
-			cout << "\t10. Xoa khoi danh sach\n";
-			cout << "\t11. Them vao danh sach\n";
-			cout << "\t12. In hoa don\n";
-			cout << "\t13. Thong tin nhom\n";
-			cout << "\t0.  Exit\n";
+			cout << "|| 1.  Doc du lieu tu File                     ||\n";
+			cout << "|| 2.  Ghi File                                ||\n";
+			cout << "|| 3.  Nhap   				       ||\n";
+			cout << "|| 4.  Xuat			 	       ||\n";	
+			cout << "|| 5.  Tinh tong gia ve trong danh sach        ||\n";
+			cout << "|| 6.  Tim Min/Max			       ||\n";
+			cout << "|| 7.  Sap xep				       ||\n";
+			cout << "|| 8.  Tim kiem				       ||\n";
+			cout << "|| 9.  Chinh sua	 		       ||\n";
+			cout << "|| 10. Xoa khoi danh sach		       ||\n";
+			cout << "|| 11. Them vao danh sach	               ||\n";
+			cout << "|| 12. In hoa don			       ||\n";
+			cout << "|| 13. Thong tin nhom			       ||\n";
+			cout << "|| 0.  Exit				       ||\n";
 			printLine();
 			cout << "Nhap lua chon: ";
 			cin >> choice;
@@ -184,8 +184,8 @@ void minMaxMenu(FlightList *list)
 {
 	clearConsole();
 	int choice;
-	printHeader("TIM MIN / MAX");
-	cout << "1. Tim min gia ve phai tra. " << endl;
+	printHeader("=======TIM MIN / MAX============");
+	cout << "||1. Tim min gia ve phai tra. ||" << endl;
 	cout << "2. Tim max gia ve phai tra. " << endl;
 	cout << "3. Exit. " << endl;
 	cout << "Hay nhap su lua chon cua ban: ";
@@ -212,8 +212,8 @@ void sortMenu(FlightList *list)
 	cout << "8.  Sap xep ID hanh khach giam dan:  " << endl;
 	cout << "9.  Sap xep tang dan theo thoi gian bay: " << endl;
 	cout << "10. Sap xep giam dan theo thoi gian bay: " << endl;
-	cout << "11. Sap xep giam dan theo gia thue: " << endl;
-	cout << "12. Sap xep tang dan theo gia thueL " << endl;
+	cout << "11. Sap xep tang dan theo gia thue: " << endl;
+	cout << "12. Sap xep giam dan theo gia thue: " << endl;
 	int choice;
 	cout << "Hay nhap lua chon cua ban: ";
 	cin >> choice;
