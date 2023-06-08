@@ -7,7 +7,12 @@ void FlightList::input()
 	{
 		Flight *ds;
 		int chon, choice;
-		cout << "1. EconomyClass\n2. BusinessClass\n3. FirstClass\n4. Exit" << endl;
+		cout << "====TICKET_TYPE===="<<endl;
+		cout << "|1. EconomyClass  |"<<endl;
+		cout << "|2. BusinessClass |"<<endl;
+		cout << "|3. FirstClass    |"<<endl;
+		cout << "|4. Exit          |" << endl;
+		cout << "-------------------"<<endl;
 		cout << "Nhap lua chon: ";
 		cin >> chon;
 		if (chon < 1 || chon > 3)

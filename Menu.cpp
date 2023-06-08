@@ -59,6 +59,27 @@ void mainMenu(FlightList *list)
 		do
 		{
 			clearConsole();
+			cout<<"*"<<endl; 
+			cout<<" **                                                               "<<endl;
+			cout<<" ***                                                                  "<<endl;
+			cout<<"  ****						                     ***" <<endl;
+			cout<<"   *****     *                                                     ****"<<endl;
+			cout<<"    *****  ****  			                     *********"<<endl;
+			cout<<"     *************		      	                  ***********"<<endl;		
+			cout<<"      ********************                          ****************"<<endl;
+			cout<<"     *********************************************************************************"<<endl;
+			cout<<"    *****      **************************   *****   *****   *****   *****   *****    *******"<<endl;
+			cout<<"   **               *********************   *****   *****   *****   *****   *****    **************"<<endl;
+			cout<<"  *                                 *********************************************************"<<endl;
+			cout<<"                                         *************************"<<endl;
+			cout<<"                                        ************************"<<endl;
+			cout<<"                                       ********************* ****"<<endl;
+			cout<<"                                    ********************     ****"<<endl;
+			cout<<"                                  ****************           ****"<<endl;
+			cout<<"                                ************	****"<<endl;
+			cout<<"                              *********         ****"<<endl;
+			cout<<"                           ******		****"<<endl;
+			cout<<"                         **"<<endl;
 			printHeader("QUAN LY CHUYEN BAY");
 			cout << "|| 1.  Doc du lieu tu File                     ||\n";
 			cout << "|| 2.  Ghi File                                ||\n";
@@ -184,10 +205,11 @@ void minMaxMenu(FlightList *list)
 {
 	clearConsole();
 	int choice;
-	printHeader("=======TIM MIN / MAX============");
-	cout << "||1. Tim min gia ve phai tra. ||" << endl;
-	cout << "2. Tim max gia ve phai tra. " << endl;
+	printHeader("TIM MIN / MAX");
+	cout << "1. Tim min gia ve phai tra.       " << endl;
+	cout << "2. Tim max gia ve phai tra.         " << endl;
 	cout << "3. Exit. " << endl;
+	cout << "================================================="<<endl;
 	cout << "Hay nhap su lua chon cua ban: ";
 	cin >> choice;
 	if (choice == 1)
@@ -265,6 +287,7 @@ void editMenu(FlightList *list)
 		cout << "3. Chinh sua thoi gian." << endl;
 		cout << "4. Chinh sua noi den." << endl;
 		cout << "5. Exit" << endl;
+		cout << "================================================="<<endl;
 		cout << "Hay nhap lua chon cua minh: ";
 		cin >> choice;
 		if (choice == 1)

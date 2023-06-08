@@ -4,10 +4,12 @@ void FirstClass::input()
 {
 	int lineChoice;
 	Flight::input();
-	cout << "Private Line: " << endl;
-	cout << "1. NO LINE         0" << endl;
-	cout << "2. QUEUE LINE      100000" << endl;
-	cout << "3. NO QUEUE LINE   200000" << endl;
+	cout << "Private Line " << endl;
+	cout << "-----------------------------"<<endl;
+	cout << "|1. NO LINE         0       |" << endl;
+	cout << "|2. QUEUE LINE      100000  |" << endl;
+	cout << "|3. NO QUEUE LINE   200000  |" << endl;
+	cout << "-----------------------------"<<endl;
 	cout << "Nhap lua chon: ";
 	cin >> lineChoice;
 	while (true)

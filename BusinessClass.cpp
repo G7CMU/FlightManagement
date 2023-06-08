@@ -5,11 +5,13 @@ void BusinessClass::input()
     int cardChoice, roomChoice;
     Flight::input();
     cout << "Chon phong cho" << endl;
-    cout << "1. Phong don" << endl;
-    cout << "2. Phong doi" << endl;
-    cout << "3. Phong 3" << endl;
-    cout << "4. Phong 4" << endl;
-    cout << "5. Phong 5" << endl;
+    cout << "-----------------"<<endl;
+    cout << "|1. Phong don   |" << endl;
+    cout << "|2. Phong doi   |" << endl;
+    cout << "|3. Phong 3     |" << endl;
+    cout << "|4. Phong 4     |" << endl;
+    cout << "|5. Phong 5     |" << endl;
+    cout << "-----------------" <<endl;
     while (true)
     {
         cout << "Hay nhap lua chon cua ban (THEO SO): ";
@@ -55,10 +57,12 @@ void BusinessClass::input()
     cout << "MealPrice: ";
     cin >> mealPrice;
     cout << "Nhap card" << endl;
-    cout << "1. NONE     -0%" << endl;
-    cout << "2. GOLD     -10%" << endl;
-    cout << "3. DIAMOND  -15%" << endl;
-    cout << "4. PLATINUM -20%" << endl;
+    cout << "--------------------"<<endl;
+    cout << "|1. NONE     -0%   |" << endl;
+    cout << "|2. GOLD     -10%  |" << endl;
+    cout << "|3. DIAMOND  -15%  |" << endl;
+    cout << "|4. PLATINUM -20%  |" << endl;
+    cout << "--------------------"<<endl;
     while (true)
     {
         cout << "Hay nhap lua chon cua ban: ";

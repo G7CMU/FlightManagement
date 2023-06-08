@@ -6,17 +6,19 @@ void EconomyClass::input()
 	Flight::input();
 
 	cout << "Chon do an nhanh: " << endl;
-	cout << "1.  FRIES 15000" << endl;
-	cout << "2.  SANDWICH 200000" << endl;
-	cout << "3.  INSTANT_NOODLES 10000" << endl;
-	cout << "4.  TOKBOKKI 40000" << endl;
-	cout << "5.  PIZZA 100000" << endl;
-	cout << "6.  HAMBURGER 50000" << endl;
-	cout << "7.  KIMBAP 30000" << endl;
-	cout << "8.  SNACK 5000" << endl;
-	cout << "9.  KFC_FRIED_CHICKEN 70000" << endl;
-	cout << "10. SALAD 55000" << endl;
-	cout << "11. YOGURT 20000" << endl;
+	cout << "------------------------------"<<endl;
+	cout << "|1.  FRIES 15000             |"<< endl;
+	cout << "|2.  SANDWICH 200000         |" << endl;
+	cout << "|3.  INSTANT_NOODLES 10000   |" << endl;
+	cout << "|4.  TOKBOKKI 40000          |" << endl;
+	cout << "|5.  PIZZA 100000            |" << endl;
+	cout << "|6.  HAMBURGER 50000         |" << endl;
+	cout << "|7.  KIMBAP 30000            |" << endl;
+	cout << "|8.  SNACK 5000              |" << endl;
+	cout << "|9.  KFC_FRIED_CHICKEN 70000 |" << endl;
+	cout << "|10. SALAD 55000             |" << endl;
+	cout << "|11. YOGURT 20000            |" << endl;
+	cout << "------------------------------"<<endl;
 	cout << "Vui long chon mon(theo so): ";
 	cin >> foodChoice;
 	switch (foodChoice)
