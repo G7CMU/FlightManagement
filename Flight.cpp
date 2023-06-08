@@ -49,44 +49,44 @@ void Flight::input()
 	}
 	}
 
-	cout << "AirlinesLabel: ";
+	cout << "Hang chuyen bay (vietnam airlines, VietJet Air,...): ";
 	getline(cin, airlinesLabel);
 	//		cin.ignore();
-	cout << "FlightRoute: ";
+	cout << "Tuyen bay: ";
 	getline(cin, flightRoute);
-	cout << "StartAirport: ";
+	cout << "San bay xuat phat: ";
 	getline(cin, startAirport);
-	cout << "StartDate: " << endl;
+	cout << "Ngay thang nam xuat phat: " << endl;
 	cin >> startDate;
-	cout << "destinationAirport: ";
+	cout << "San bay ha canh: ";
 	cin.ignore();
 	getline(cin, destinationAirport);
-	cout << "flightLength(h): ";
+	cout << "Thoi gian bay tinh theo gio: ";
 	cin >> flightLength;
-	cout << "flightID: ";
+	cout << "Ma ID chuyen bay: ";
 	cin.ignore();
 	//	cin>>flightID;
 	getline(cin, flightID);
 	//	cin.ignore();
-	cout << "flightNature(noi dia, ngoai dia): ";
+	cout << "Tinh chat chuyen bay (noi dia, ngoai dia): ";
 	getline(cin, flightNature);
-	cout << "Door: ";
+	cout << "Cong vao: ";
 	cin >> door;
-	cout << "Chair: ";
+	cout << "So ghe: ";
 	cin.ignore();
 	getline(cin, chair);
-	cout << "Destination: ";
+	cout << "Diem den (quoc gia nao do): ";
 	getline(cin, destination);
-	cout << "TimeDelay: ";
+	cout << "Thoi gian delay: ";
 	cin >> timeDelay;
-	cout << "From: ";
+	cout << "Bat dau chuyen bay(tinh, thanh pho nao do): ";
 	cin.ignore();
 	getline(cin, from);
-	cout << "To: ";
+	cout << "Ket thuc chuyen bay(tinh, thanh pho nao do): ";
 	getline(cin, to);
-	cout << "typeOfLuggage: ";
+	cout << "Loai hanh ly (ky gui, xach tay): ";
 	getline(cin, typeOfLuggage);
-	cout << "initialPrice: ";
+	cout << "Gia ban dau phai tra: ";
 	cin >> initialPrice;
 }
 
@@ -96,22 +96,22 @@ void Flight::output()
 	cout << "========================" << endl;
 	cout << "||Thong tin chuyen bay||" << endl;
 	cout << "========================" << endl;
-	cout << "AirlinesLabel: " << airlinesLabel << endl;
-	cout << "FlightRoute: " << flightRoute << endl;
-	cout << "StartAirport: " << startAirport << endl;
-	cout << "StartDate: " << startDate << endl;
-	cout << "destinationAirport: " << destinationAirport << endl;
-	cout << "flightLength: " << flightLength << endl;
-	cout << "flightID: " << flightID << endl;
-	cout << "flightNature(noi dia, ngoai dia): " << flightNature << endl;
-	cout << "Door: " << door << endl;
-	cout << "Chair: " << chair << endl;
-	cout << "Destination: " << destination << endl;
-	cout << "TimeDelay: " << timeDelay << endl;
-	cout << "From: " << from << endl;
-	cout << "To: " << to << endl;
-	cout << "TypeOfLuggage: " << typeOfLuggage << endl;
-	cout << "InitialPrice: " << initialPrice << endl;
+	cout << "Hang chuyen bay: " << airlinesLabel << endl;
+	cout << "Tuyen bay: " << flightRoute << endl;
+	cout << "San bay bat dau: " << startAirport << endl;
+	cout << "Thoi gian bat dau: " << startDate << endl;
+	cout << "San bay ha canh: " << destinationAirport << endl;
+	cout << "Do dai thoi gian bay: " << flightLength << endl;
+	cout << "ID chuyen bay: " << flightID << endl;
+	cout << "Tinh chat(noi dia, ngoai dia): " << flightNature << endl;
+	cout << "Cong vao: " << door << endl;
+	cout << "Ghe: " << chair << endl;
+	cout << "Diem den: " << destination << endl;
+	cout << "Thoi gian delay: " << timeDelay << endl;
+	cout << "Bat dau: " << from << endl;
+	cout << "Ket thuc: " << to << endl;
+	cout << "Loai hanh ly: " << typeOfLuggage << endl;
+	cout << "Gia ban dau: " << (size_t)initialPrice << endl;
 }
 
 float Flight::TotalPrice()

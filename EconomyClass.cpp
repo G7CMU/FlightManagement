@@ -57,11 +57,11 @@ void EconomyClass::input()
 		fastFood = YOGURT;
 		break;
 	}
-	cout << "Vocher: ";
+	cout << "Vocher(0-10/11-20/>20): ";
 	cin >> voucher;
-	cout << "Enter your age: ";
+	cout << "Tuoi hanh khach ve hang pho thong: ";
 	cin >> ageECN;
-	cout << "Aggage Weight ECN: ";
+	cout << "Can nang hanh ly ve hang pho thong: ";
 	cin >> aggageWeightECN;
 }
 void EconomyClass::output()
@@ -84,8 +84,8 @@ void EconomyClass::output()
 	}
 //	cout << "Price_Fastfood: " << fastFood << endl;
 	cout << "Voucher: " << voucher << endl;
-	cout << "Age ECN: " << ageECN << endl;
-	cout << "Aggage Weight ECN: " << aggageWeightECN << endl;
+	cout << "Tuoi: " << ageECN << endl;
+	cout << "Can nang hanh ly: " << aggageWeightECN << endl;
 }
 float EconomyClass::tax()
 {

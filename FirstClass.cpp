@@ -33,27 +33,27 @@ void FirstClass::input()
 	}
 	cout << "Phi vao cong la: " << privateLine << endl;
 	cin.ignore();
-	cout << "Drink: ";
+	cout << "Nuoc uong( ruou, nuoc ngot, ...): ";
 	getline(cin, drink);
-	cout << "PriceOfDrink: ";
+	cout << "Gia nuoc uong: ";
 	cin >> priceOfDrink;
 	cin.ignore();
-	cout << "Eat: ";
+	cout << "Mon an: ";
 	getline(cin, eat);
-	cout << "RoomEat: ";
+	cout << "Phong an: ";
 	cin >> roomEat;
-	cout << "EatPrice: ";
+	cout << "Gia do an: ";
 	cin >> eatPrice;
 	cin.ignore();
-	cout << "Service: ";
+	cout << "Dich vu ban muon su dung: ";
 	getline(cin, service);
-	cout << "ServicePrice: ";
+	cout << "Gia dich vu: ";
 	cin >> servicePrice;
 	cout << "Accumulation(0-10/11-20/21-30/31-50/>50): ";
 	cin >> accumulation;
-	cout << "Age F: ";
+	cout << "Tuoi hanh khach tren ve hang nhat: ";
 	cin >> ageF;
-	cout << "Aggage Weight F: ";
+	cout << "can nang hanh ly tren ve hang nhat: ";
 	cin >> aggageWeightF;
 }
 void FirstClass::output()
@@ -72,16 +72,16 @@ void FirstClass::output()
 		cout << "NO QUEUE LINE\n";
 		break;
 	}
-	cout << "Drink: " << drink << endl;
-	cout << "PriceOfDrink: " << priceOfDrink << endl;
-	cout << "Eat: " << eat << endl;
-	cout << "RoomEat: " << roomEat << endl;
-	cout << "EatPrice: " << eatPrice << endl;
-	cout << "Service: " << service << endl;
-	cout << "ServicePrice: " << servicePrice << endl;
+	cout << "Nuoc uong: " << drink << endl;
+	cout << "Gia nuoc uong: " << priceOfDrink << endl;
+	cout << "Do an: " << eat << endl;
+	cout << "Phong an: " << roomEat << endl;
+	cout << "Gia cua mon an: " << eatPrice << endl;
+	cout << "Dich vu: " << service << endl;
+	cout << "Gia cua dich vu: " << servicePrice << endl;
 	cout << "Accumulation: " << accumulation << endl;
-	cout << "Age F: " << ageF << endl;
-	cout << "Aggage Weight F: " << aggageWeightF << endl;
+	cout << "Tuoi hanh khach: " << ageF << endl;
+	cout << "Can nang hanh ly: " << aggageWeightF << endl;
 }
 float FirstClass::tax()
 {

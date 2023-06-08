@@ -102,22 +102,28 @@ void FlightList::sortDateStart1()
 	{
 		int b = (list[i]->startDate.year * 100 + list[i]->startDate.month) * 100 + list[i]->startDate.day;
 		a[i] = b;
+//		cout<<a[i]<<" ";
 	}
+//	for (int i = 0; i < k - 1; i++)
+//	{
+//		for (int j = i + 1; j < k; j++)
+//		{
+//			if (a[i] > a[j])
+//			{
+//				swap(list[i], list[j]);
+//			}
+//		}
+//	}
 	for (int i = 0; i < k - 1; i++)
 	{
 		for (int j = i + 1; j < k; j++)
+		{
 			if (a[i] > a[j])
 			{
+				swap(a[i], a[j]);
 				swap(list[i], list[j]);
 			}
-	}
-	for (int i = 0; i < k - 1; i++)
-	{
-		for (int j = i + 1; j < k; j++)
-			if (a[i] > a[j])
-			{
-				swap(list[i], list[j]);
-			}
+		}
 	}
 }
 void FlightList::sortDateStart2()
@@ -133,10 +139,13 @@ void FlightList::sortDateStart2()
 	for (int i = 0; i < k - 1; i++)
 	{
 		for (int j = i + 1; j < k; j++)
+		{
 			if (a[i] < a[j])
 			{
+				swap(a[i], a[j]);
 				swap(list[i], list[j]);
 			}
+		}
 	}
 }
 
@@ -294,11 +303,13 @@ void FlightList::findAll()
 	}
 	while (true)
 	{
-		cout << "1.ID" << endl;
-		cout << "2.Gioi tinh" << endl;
-		cout << "3.Ma chuyen bay" << endl;
-		cout << "4.Cong vao" << endl;
-		cout << "5.Exit" << endl;
+		cout << "-------LOC--------" <<endl;
+		cout << "|1.ID            |" << endl;
+		cout << "|2.Gioi tinh     |" << endl;
+		cout << "|3.Ma chuyen bay |" << endl;
+		cout << "|4.Cong vao      |" << endl;
+		cout << "|5.Exit          |" << endl;
+		cout << "------------------" <<endl;
 		cout << "Hay nhap lua chon cua ban: ";
 		cin >> choice;
 		if (choice == 1)
@@ -542,7 +553,122 @@ void FlightList::editDestination()
 		}
 	}
 }
+void FlightList::editflightRoute()
+{
+	string _flightID;
+	string a;
+	int k = list.size(), change = 0;
 
+	cout << "Hay nhap id chuyen bay ban muon thay doi tuyen duong: ";
+	cin >> _flightID;
+	cin.ignore();
+	cout << "Tuyen duong moi la: ";
+	getline(cin, a);
+
+	for (int i = 0; i < k; i++)
+	{
+		if (list[i]->flightID == _flightID)
+		{
+			list[i]->flightRoute = a;
+		}
+	}
+}
+void FlightList::editairlinesLabel()
+{
+	string _flightID;
+	string a;
+	int k = list.size(), change = 0;
+
+	cout << "Hay nhap id chuyen bay ban muon thay doi hang may bay: ";
+	cin >> _flightID;
+	cin.ignore();
+	cout << "Hang may bay moi la: ";
+	getline(cin, a);
+
+	for (int i = 0; i < k; i++)
+	{
+		if (list[i]->flightID == _flightID)
+		{
+			list[i]->airlinesLabel = a;
+		}
+	}
+}
+void FlightList::editDoor()
+{
+	string b;
+	int a;
+	int k = list.size(), change = 0;
+
+	cout << "Hay nhap sdt hanh khach ban muon thay doi cong vao may bay: ";
+	cin >> b;
+	cin.ignore();
+	cout << "cong vao may bay moi la: ";
+	cin>>a;
+
+	for (int i = 0; i < k; i++)
+	{
+		if (list[i]->passenger.phoneNumber == b)
+		{
+			list[i]->door = a;
+		}
+	}
+}
+void FlightList::editChair()
+{
+	string b;
+	string a;
+	int k = list.size(), change = 0;
+
+	cout << "Hay nhap sdt hanh khach ban muon thay doi ghe ngoi: ";
+	cin >> b;
+	cin.ignore();
+	cout << "Ghe ngoi moi la: ";
+	getline(cin, a);
+
+	for (int i = 0; i < k; i++)
+	{
+		if (list[i]->passenger.phoneNumber == b)
+		{
+			list[i]->chair = a;
+		}
+	}
+}
+void FlightList::edittypeOfLuggage()
+{
+	string b;
+	string a;
+	int k = list.size(), change = 0;
+
+	cout << "Hay nhap sdt cua hanh khach ban muon thay doi hanh ly: ";
+	cin >> b;
+	cin.ignore();
+	cout << "loai hanh ly moi la: ";
+	getline(cin, a);
+
+	for (int i = 0; i < k; i++)
+	{
+		if (list[i]->passenger.phoneNumber == b)
+		{
+			list[i]->typeOfLuggage = a;
+		}
+	}
+}
+void FlightList::removepassengerID()
+{
+	string a;
+
+	cout << "Ban hay nhap so dien thoai hanh khach can xoa: ";
+	cin >> a;
+
+	for (int i = 0; i < list.size(); i++)
+	{
+		if (list[i]->passenger.phoneNumber == a)
+		{
+			list.erase(list.begin() + i);
+			i--;
+		}
+	}
+}
 void FlightList::removeFlightById()
 {
 	string _flightID;
@@ -580,6 +706,7 @@ void FlightList::removeFlightByDestination()
 {
 	string _destination;
 	int k = list.size();
+	cin.ignore();
 	cout << "Ban hay nhap diem den: ";
 	getline(cin, _destination);
 
@@ -624,11 +751,13 @@ void FlightList::printinvoice()
 	int k = list.size();
 	for (int i = 0; i < k; i++)
 	{
+		cout << "==================================================="<<endl;
 		cout << "|Ngay " << list[i]->startDate.day << " Thang " << list[i]->startDate.month << " Nam " << list[i]->startDate.day << "  " << endl;
 		cout << "|NAME: " << list[i]->passenger.name << "     |Hang may bay: " << list[i]->airlinesLabel << "                                        " << endl;
 		cout << "|ID: " << list[i]->flightID << "  |Thoi gian bay: " << list[i]->flightLength << "                                  " << endl;
 		cout << "|From: " << list[i]->from << " |To: " << list[i]->to << " " << endl;
 		cout << "|Door: " << list[i]->door << "   |So ghe: " << list[i]->chair;
 		cout << "|Price: " << list[i]->TotalPrice() << endl;
+		cout << "===================================================="<<endl;
 	}
 }

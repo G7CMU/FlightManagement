@@ -58,5 +58,11 @@ public:
 	void sortByTaxAsc();
 	void sortByTaxDesc();
 	void sortByBirth1();
+	void editflightRoute();
+	void editairlinesLabel();
+	void editDoor();
+	void editChair();
+	void edittypeOfLuggage();
+	void removepassengerID();
 };
 #endif

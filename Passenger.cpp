@@ -11,11 +11,11 @@ void Passenger::input()
 	int choice = 1;
 
 	cin.ignore();
-	cout << "Nhap ID: ";
+	cout << "ID: ";
 	getline(cin, _id);
-	cout << "Nhap ID hanh khach: ";
+	cout << "ID hanh khach: ";
 	getline(cin, _passengerID);
-	cout << "Nhap ten: ";
+	cout << "Ten hanh khach: ";
 	getline(cin, _name);
 	cout << "Gioi tinh (nam / nu): ";
 	cin >> sex;
@@ -55,10 +55,10 @@ void Passenger::output()
 	cout << "||Thong tin khach hang||" << endl;
 	cout << "========================" << endl;
 	cout << "ID: " << id << endl;
-	cout << "Passenger ID: " << passengerID << endl;
-	cout << "Ten: " << name << endl;
-	cout << "Gioi tinh: " << sex << endl;
-	cout << "SDT: " << phoneNumber << endl;
+	cout << "ID hanh khach: " << passengerID << endl;
+	cout << "Ten hanh khach: " << name << endl;
+	cout << "Gioi tinh hanh khach: " << sex << endl;
+	cout << "So dien thoai hanh khach: " << phoneNumber << endl;
 	cout << "Ngay, thang, nam sinh: " << dateOfBirth << endl;
 }
 

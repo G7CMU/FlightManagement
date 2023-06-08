@@ -224,18 +224,19 @@ void sortMenu(FlightList *list)
 	clearConsole();
 	printHeader("SAP XEP");
 
-	cout << "1.  Sap xep tang dan theo ngay xuat phat: " << endl;
-	cout << "2.  Sap xep giam dan theo ngay xuat phat: " << endl;
-	cout << "3.  Sap xep tang dan theo ngay sinh: " << endl;
-	cout << "4.  Sap xep giam dan theo ngay sinh: " << endl;
-	cout << "5.  Sap xep tong gia tang dan: " << endl;
-	cout << "6.  Sap xep tong gia giam dan: " << endl;
-	cout << "7.  Sap xep ID hanh khach tang dan: " << endl;
-	cout << "8.  Sap xep ID hanh khach giam dan:  " << endl;
-	cout << "9.  Sap xep tang dan theo thoi gian bay: " << endl;
-	cout << "10. Sap xep giam dan theo thoi gian bay: " << endl;
-	cout << "11. Sap xep tang dan theo gia thue: " << endl;
-	cout << "12. Sap xep giam dan theo gia thue: " << endl;
+	cout << "|1.  Sap xep tang dan theo ngay xuat phat:      |" << endl;
+	cout << "|2.  Sap xep giam dan theo ngay xuat phat:      |" << endl;
+	cout << "|3.  Sap xep tang dan theo ngay sinh:           |" << endl;
+	cout << "|4.  Sap xep giam dan theo ngay sinh:           |" << endl;
+	cout << "|5.  Sap xep tong gia tang dan:                 |" << endl;
+	cout << "|6.  Sap xep tong gia giam dan:                 |" << endl;
+	cout << "|7.  Sap xep ID hanh khach tang dan:            |" << endl;
+	cout << "|8.  Sap xep ID hanh khach giam dan:            |" << endl;
+	cout << "|9.  Sap xep tang dan theo thoi gian bay:       |" << endl;
+	cout << "|10. Sap xep giam dan theo thoi gian bay:	|" << endl;
+	cout << "|11. Sap xep tang dan theo gia thue:		|" << endl;
+	cout << "|12. Sap xep giam dan theo gia thue:            |" << endl;
+	cout << "================================================="<<endl;
 	int choice;
 	cout << "Hay nhap lua chon cua ban: ";
 	cin >> choice;
@@ -263,13 +264,14 @@ void sortMenu(FlightList *list)
 		list->sortByTaxAsc();
 	if (choice == 12)
 		list->sortByTaxDesc();
+	cout<<"Hay dung chuc nang xuat de xem duoc ket qua ban nhe !!!"<<endl;
 	waitForInput();
 }
 
 void filterMenu(FlightList *list)
 {
 	clearConsole();
-	printHeader("LOC");
+//	printHeader("LOC");
 	list->findAll();
 	waitForInput();
 }
@@ -282,11 +284,17 @@ void editMenu(FlightList *list)
 
 	while (true)
 	{
-		cout << "1. Chinh sua id hanh khach." << endl;
-		cout << "2. Chinh sua ma chuyen bay." << endl;
-		cout << "3. Chinh sua thoi gian." << endl;
-		cout << "4. Chinh sua noi den." << endl;
-		cout << "5. Exit" << endl;
+		cout << "-------------------------------------------------"<<endl;
+		cout << "|1. Chinh sua id hanh khach.                    |" << endl;
+		cout << "|2. Chinh sua ma chuyen bay.                    |" << endl;
+		cout << "|3. Chinh sua do dai thoi gian bay.             |" << endl;
+		cout << "|4. Chinh sua noi den.                          |" << endl;
+		cout << "|5. Chinh sua tuyen duong bay.                  |"<<endl;
+		cout << "|6. Chinh sua hang may bay.                     |"<<endl;
+		cout << "|7. Chinh sua cong vao.                         |"<<endl;
+		cout << "|8. Chinh sua ghe ngoi.                         |"<<endl;
+		cout << "|9. Chinh sua loai hanh ly.                     |"<<endl;
+		cout << "|0. Exit                                        |" << endl;
 		cout << "================================================="<<endl;
 		cout << "Hay nhap lua chon cua minh: ";
 		cin >> choice;
@@ -299,7 +307,18 @@ void editMenu(FlightList *list)
 		if (choice == 4)
 			list->editDestination();
 		if (choice == 5)
+			list->editflightRoute();
+		if (choice == 6)
+			list->editairlinesLabel();
+		if (choice == 7)
+			list->editDoor();
+		if (choice == 8)
+			list->editChair();
+		if (choice == 9)
+			list->edittypeOfLuggage();
+		if (choice == 0)
 			break;
+		cout<<"Hay dung chuc nang xuat de xem duoc ket qua ban nhe !!!"<<endl;
 	}
 	waitForInput();
 }
@@ -311,10 +330,13 @@ void removeMenu(FlightList *list)
 	printHeader("XOA KHOI DANH SACH");
 	while (true)
 	{
-		cout << "1. Xoa danh sach theo ID." << endl;
-		cout << "2. Xoa danh sach theo cong vao." << endl;
-		cout << "3. Xoa danh sach theo noi den." << endl;
-		cout << "4. Exit." << endl;
+		cout << "-------------------------------------------------"<<endl;
+		cout << "|1. Xoa danh sach theo ID may bay.              |" << endl;
+		cout << "|2. Xoa danh sach theo cong vao.                |" << endl;
+		cout << "|3. Xoa danh sach theo noi den.                 |" << endl;
+		cout << "|4. Xoa hanh khach theo so dien thoai.          |" <<endl;
+		cout << "|0. Exit.                                       |" << endl;
+		cout << "================================================="<<endl;
 		cout << "Hay nhap lua chon cua ban: ";
 		cin >> choice;
 		if (choice == 1)
@@ -323,9 +345,11 @@ void removeMenu(FlightList *list)
 			list->removeFlightByDoor();
 		if (choice == 3)
 			list->removeFlightByDestination();
-		if (choice == 4)
+		if (choice ==4)
+			list->removepassengerID();
+		if (choice == 0)
 			break;
-		cout << "Hay nhap lai!!" << endl;
+		cout<<"Hay dung chuc nang xuat de xem duoc ket qua ban nhe !!!"<<endl;
 	}
 	waitForInput();
 }
@@ -335,7 +359,9 @@ void appendMenu(FlightList *list)
 	clearConsole();
 	printHeader("CHEN VAO DANH SACH");
 	list->appendFlight();
+	cout<<"Hay dung chuc nang xuat de xem duoc ket qua ban nhe !!!"<<endl;
 	waitForInput();
+	
 }
 
 void invoiceMenu(FlightList *list)

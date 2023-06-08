@@ -45,16 +45,16 @@ void BusinessClass::input()
     }
     // them chuc nang
     cin.ignore();
-    cout << "Waiting Food: ";
+    cout << "Do an trong luc cho: ";
     getline(cin, waitingFood);
-    cout << "Soft Drinks: ";
+    cout << "Nuoc uong giai khat: ";
     getline(cin, softDrinks);
-    cout << "SoftDrinksPrice: ";
+    cout << "Gia cua nuoc uong: ";
     cin >> softDrinksPrice;
     cin.ignore();
-    cout << "Meal: ";
+    cout << "Mon an ban goi: ";
     getline(cin, meal);
-    cout << "MealPrice: ";
+    cout << "Gia cua mon an: ";
     cin >> mealPrice;
     cout << "Nhap card" << endl;
     cout << "--------------------"<<endl;
@@ -90,9 +90,9 @@ void BusinessClass::input()
         cout << "Vui long nhap lai: " << endl;
     }
     // cout << "Cac ban chon co so phan tram giam la: " << card << endl;
-    cout << "Age BSN: ";
+    cout << "Nhap tuoi hanh khach tren hang thuong gia: ";
     cin >> ageBSN;
-    cout << "Aggage Weight BSN: ";
+    cout << "Nhap so can nang hanh ly tren chuyen bay thuong gia: ";
     cin >> aggageWeightBSN;
 }
 
@@ -135,11 +135,11 @@ void BusinessClass::output()
     }
 
     // cin.ignore(); // ??
-    cout << "Waiting Food: " << waitingFood << endl;
-    cout << "Soft Drinks: " << softDrinks << endl;
-    cout << "SoftDrinksPrice: " << softDrinksPrice << endl;
-    cout << "Meal: " << meal << endl;
-    cout << "MealPrice: " << mealPrice << endl;
+    cout << "Thuc an trong phong cho: " << waitingFood << endl;
+    cout << "Nuoc uong giai khat: " << softDrinks << endl;
+    cout << "Gia cua nuoc uong: " << softDrinksPrice << endl;
+    cout << "Mon an chinh: " << meal << endl;
+    cout << "Gia cua mon an: " << mealPrice << endl;
     cout << "Card: ";
     switch (card)
     {
@@ -168,8 +168,8 @@ void BusinessClass::output()
     // if (cardChoice == 4)
     // 	cout << "Ban dang su dung CARD PLATINUM " << endl;
     // them chuc nang
-    cout << "Age BSN: " << ageBSN << endl;
-    cout << "Aggage Weight BSN: " << aggageWeightBSN << endl;
+    cout << "Tuoi hanh khach: " << ageBSN << endl;
+    cout << "Can nang hanh ly: " << aggageWeightBSN << endl;
 }
 float BusinessClass::tax()
 {
