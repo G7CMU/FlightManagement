@@ -456,7 +456,7 @@ void FlightList::editPassengerByPhoneNumber()
 	{
 		cout << "Thong tin khach hang:\n";
 		toEdit.output();
-		string _id, _name, __phoneNumber, _passengerID;
+		string _id, _name, _sex, _passengerID;
 
 		cout << "Nhap cac thong tin khach hang!\n";
 		cout << "Nhap [x] de bo qua!\n";
@@ -469,17 +469,23 @@ void FlightList::editPassengerByPhoneNumber()
 		getline(cin, _name);
 		toEdit.name = _name != "x" ? _name : toEdit.name;
 
-		cout << "Phone number: ";
-		getline(cin, __phoneNumber);
-		toEdit.phoneNumber = __phoneNumber != "x" ? __phoneNumber : toEdit.phoneNumber;
-
 		cout << "Passenger ID: ";
 		getline(cin, _passengerID);
 		toEdit.passengerID = _passengerID != "x" ? _passengerID : toEdit.passengerID;
+		
+		cout << "Gioi tinh: ";
+		getline(cin, _sex);
+		toEdit.sex = _sex != "x" ? _sex : toEdit.sex;
 
 		cout << "Thong tin sau khi thay doi la: \n";
 		toEdit.output();
 		toEdit.saveToFile();
+		
+		for (int i = 0; i < list.size(); i++)
+		{
+			if (list[i]->passenger.phoneNumber == _phoneNumber)
+				list[i]->passenger.readFromFile(_phoneNumber);
+		}
 	}
 	else
 	{
